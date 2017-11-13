@@ -1,0 +1,20 @@
+<div class="menu">
+<nav class="menu-content">
+{% for p in site.pages %}
+  {% if p.title != "404 - Page not found" %}
+    {% if page.url == p.url %}
+      <a style="font-weight: bold; color: #4f77c6;" href="{{ site.github.url }}/{{ p.permalink }}.html">{{ p.title }}</a>
+    {% else %}
+      <a href="{{ site.github.url }}/{{ p.permalink }}.html">{{ p.title }}</a>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+  <nav class="social-icons">
+    {% for item in site.data.settings.social %}
+    <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+    {% endfor %}
+  </nav>
+</nav>
+
+</div>

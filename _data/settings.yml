@@ -1,0 +1,20 @@
+title:  Griffin Chure
+# tagline:  a minimalist Jekyll theme
+
+# Authors documented under _data
+
+# google-ID: 
+s3_url: "https://s3.amazonaws.com/gdc-photos/"
+menu:
+- {name: 'about', url: 'about.html'}
+- {name: 'cv', url: 'cv.html'}
+- {name: 'research', url: 'contact.html'}
+- {name: 'teaching', url: 'teaching.html'}
+- {name: 'photography',  url: 'contact.html'}
+
+social:
+- {icon: 'github', link: 'https://www.github.com/gchure'}
+- {icon: 'envelope', link: 'mailto:gchure@caltech.edu'}
+
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
