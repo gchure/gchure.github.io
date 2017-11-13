@@ -11,4 +11,4 @@ CA. I am deeply in love with anything microbial, quantitative, or wrapped in
 tortillas and firmly believe that the future of biology relies on an intuition
 for the physics that governs it. When not killing billions of bacteria, I'm
 either learning new programming languages, exploring the public lands of
-California, or [taking photos](photography.html) of higher organisms.
+California, or [taking photos](/photos.html) of higher organisms.

@@ -10,7 +10,7 @@ markdown:            kramdown
 highlighter:         rouge
 permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
-baseurl: "http://www.gchure.github.io/"
+baseurl: "/"
 # Customise feed settings (uncommenting following two fields to customise feed title and description)
 title:		     "Griffin Chure"
 # description:	     "a minimalist Jekyll theme-Custom"
