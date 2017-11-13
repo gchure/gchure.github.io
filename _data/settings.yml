@@ -3,7 +3,7 @@ title:  Griffin Chure
 
 # Authors documented under _data
 
-# google-ID: 
+google-ID: UA-109526846-1
 s3_url: "https://s3.amazonaws.com/gdc-photos/"
 menu:
 - {name: 'about', url: 'about.html'}
