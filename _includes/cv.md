@@ -28,7 +28,7 @@ A.S. General Science (Biology Emphasis), Utah State University, *2009*
 † *indicates equal contribution*
 
 
-1.Manuel Razo-Mejia<sup>†</sup>, Stephanie L. Barnes <sup>†</sup>, Nathan M. Belliveau<sup>†</sup>, **Griffin Chure**<sup>†</sup>, Tal Einav<sup>†</sup>, Mitchell Lewis, Rob Phillips (2017) Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction. *In review.* doi:10.1101/111013. [Preprint available on bioRxiv](http://www.biorxiv.org/content/early/2017/06/26/111013).
+1.Manuel Razo-Mejia<sup>†</sup>, Stephanie L. Barnes <sup>†</sup>, Nathan M. Belliveau<sup>†</sup>, **Griffin Chure**<sup>†</sup>, Tal Einav<sup>†</sup>, Mitchell Lewis, Rob Phillips (2018) Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction. *Cell Systems* (6). doi:10.1101/111013. [Open access through publisher website](http://www.cell.com/cell-systems/fulltext/S2405-4712(18)30057-7)
 
 # Teaching
 **California Institute of Technology**
