@@ -1,16 +1,19 @@
-# Site Settings
-
-
-
-# jekyll-paginate configuration
-paginate: 5
+title: Griffin Chure 
+# author: GitHub User
+email: gchure@caltech.com
+# description: > # this means to ignore newlines until "baseurl:"
+#   Write an awesome description for your new site here. You can edit this
+#   line in _config.yml. It will appear in your document head meta (for
+#   Google search results) and in your feed.xml site description.
+baseurl: "/jekyll-theme-kagami"
+lang: en # site language (en/ja/zh-Hans/zh-Hant)
+color_scheme: github # this specifies color scheme for syntax highlighting
+github_username: gchure
+twitter_username: gdchure
+instagram_username: gchure
 
 # Build settings
-markdown:            kramdown
-highlighter:         rouge
-permalink:           none
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
-baseurl: "/"
-# Customise feed settings (uncommenting following two fields to customise feed title and description)
-title:		     "Griffin Chure"
-# description:	     "a minimalist Jekyll theme-Custom"
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock

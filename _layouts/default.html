@@ -1,14 +1,16 @@
-<!doctype html>
-<html>
-{% include head.html %}
+---
+layout: blank
+---
+
 <body>
 
-  <div class="container">
-    {% include header.html %}
-    <div class="post-container">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
       {{ content }}
     </div>
-    {% include footer.html %}
-  </div>
+    {% include retina-image.html %}
+  </main>
+
+  {% include footer.html %}
+
 </body>
-</html>

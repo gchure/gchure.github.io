@@ -1,9 +1,0 @@
----
-title: "Griffin Chure"
-author: "`http://gchure.github.io`"
-date: "gchure@caltech.edu"
-geometry: margin=1in
-header-includes: |
-  \usepackage{microtype}
-mainfont: Palatino
----
