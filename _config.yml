@@ -11,7 +11,7 @@ color_scheme: github # this specifies color scheme for syntax highlighting
 github_username: gchure
 twitter_username: gdchure
 instagram_username: gchure
-
+google_analytics: UA-109526846-1
 # Build settings
 markdown: kramdown
 exclude:
