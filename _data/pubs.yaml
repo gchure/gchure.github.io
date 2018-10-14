@@ -1,10 +1,11 @@
 - pub:
   title: "Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution"
   authors: "**Griffin Chure**<sup>☭</sup>, Heun Jin Lee <sup>☭</sup>, and Rob Phillips."
-  journal: preprint on arXiv
+  journal: Journal of Bacteriology
   year: 2018
+  volume: In press
   links:
-      preprint on arXiv: ""
+      DOI: "10.1128/JB.00460-18"
 
 - pub:
   title: "Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction"
@@ -15,4 +16,5 @@
   links:
       DOI: "https://doi.org/10.1016/j.cels.2018.02.004"
       Available from publisher: "http://www.cell.com/cell-systems/fulltext/S2405-4712(18)30057-7"
+
 
