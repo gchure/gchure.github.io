@@ -4,12 +4,11 @@
   journal: Journal of Bacteriology
   year: 2018
   volume: 200
-  issue: 23
+  number: (23)
   links:
       DOI: "10.1128/JB.00460-18"
       Available from publisher: "https://jb.asm.org/content/200/23/e00460-18/article-info"
-  other:
-    featured: <a href="https://jb.asm.org/content/200/23/e00594-18"> Selected as an article of significant interest in the December 2018 issue. </a>
+  other: <a href="https://jb.asm.org/content/200/23/e00594-18"> Selected as an article of significant interest in the December 2018 issue. </a>
 
 - pub:
   title: "Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction"
