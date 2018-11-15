@@ -22,7 +22,7 @@ permalink: cv
 <sup>**☭** </sup> indicates equal contribution
 
 {% for pub in site.data.pubs %}
-1. {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}) {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.extra %}
+1. {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}). DOI: {{ pub.DOI }}. {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.extra %}
 <ul style='margin-top: -1.5em;'>
     <li style="margin-left:2em;list-style-type: circle;"> <i> {{pub.featured}} </i></li></ul>
     {% endif %}
