@@ -3,9 +3,13 @@
   authors: "**Griffin Chure**<sup>☭</sup>, Heun Jin Lee <sup>☭</sup>, Akiko Rasmussen, and Rob Phillips."
   journal: Journal of Bacteriology
   year: 2018
-  volume: In press
+  volume: 200
+  issue: 23
   links:
       DOI: "10.1128/JB.00460-18"
+      Available from publisher: "https://jb.asm.org/content/200/23/e00460-18/article-info"
+  other:
+    featured: <a href="https://jb.asm.org/content/200/23/e00594-18"> Selected as an article of significant interest in the December 2018 issue. </a>
 
 - pub:
   title: "Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction"
@@ -16,5 +20,4 @@
   links:
       DOI: "https://doi.org/10.1016/j.cels.2018.02.004"
       Available from publisher: "http://www.cell.com/cell-systems/fulltext/S2405-4712(18)30057-7"
-
-
+  other: Highlighted in <a href="https://www.sciencedirect.com/science/article/pii/S2405471218301467"> Splitting the world with absolute measurements </a> by <a href="https://www.cell.com/cell-systems/editors"> Quincey Justman </a>
