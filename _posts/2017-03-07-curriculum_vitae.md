@@ -5,7 +5,7 @@ title: CV
 permalink: cv
 ---
 
-[**Download PDF <i class="icon-pdf"></i>**]({{ site.baseurl}}/assets/GriffinChure_CV_201810.pdf)
+[**Download PDF <i class="icon-pdf"></i>**]({{ site.baseurl}}/assets/GriffinChure_CV_2011.pdf)
 
 ## Education
 **A.Sc. General Studies**, Utah State University, *2009*<br/>
@@ -22,7 +22,7 @@ permalink: cv
 <sup>**☭** </sup> indicates equal contribution
 
 {% for pub in site.data.pubs %}
-1. {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}). DOI: {{ pub.DOI }}. {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.extra %}
+1. {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}). DOI: {{ pub.DOI }}. {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.other %}
 <ul style='margin-top: -1.5em;'>
     <li style="margin-left:2em;list-style-type: circle;"> <i> {{pub.other}} </i></li></ul>
     {% endif %}
