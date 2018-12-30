@@ -11,7 +11,7 @@ permalink: cv
 **A.Sc. General Studies**, Utah State University, *2009*<br/>
 **B.Sc. Biology** - Cell & Molecular Emphasis (Honors), University of Utah, *2013*<br/>
 **B.Sc. Chemistry** - Biological Emphasis & Minor Physics, University of Utah, *2013*<br/>
-**Ph.D Biochemistry & Molecular Biophysics**, California Institute of Technology, *expected 2020* 
+**Ph.D. Biochemistry & Molecular Biophysics**, California Institute of Technology, *expected 2020* 
 <div style="padding-left: 1em; margin-top:-2em;">
 <i>Thesis topic:</i> Predictive versatility of the Monod-Wyman-Changeux model of Allostery in the context of transcriptional regulation.<br/> 
 <i>Thesis adviser:</i> Professor Rob Phillips
