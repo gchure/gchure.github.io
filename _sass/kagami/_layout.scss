@@ -220,6 +220,7 @@ div.about {
   }
   .image {
     margin-left: 10%;
+    max-width: 400px;
     @media screen and (max-width: 0.55 * $content-width){
       display: none;
   }
