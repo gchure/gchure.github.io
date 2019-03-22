@@ -5,7 +5,7 @@ title: CV
 permalink: cv
 ---
 
-[**Download PDF <i class="icon-pdf"></i>**]({{ site.baseurl}}/assets/GriffinChure_CV_201811.pdf)
+[**Download PDF <i class="icon-pdf"></i>**]({{ site.baseurl}}/assets/GriffinChure_CV_201903.pdf)
 
 ## Education
 **A.Sc. General Studies**, Utah State University, *2009*<br/>
