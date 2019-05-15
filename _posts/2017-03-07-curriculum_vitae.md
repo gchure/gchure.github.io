@@ -21,9 +21,13 @@ permalink: cv
 ## Publications
 <sup>**☭** </sup> indicates equal contribution
 
+<ol>
+
 {% for pub in site.data.pubs %}
-1. {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}). DOI: {{ pub.DOI }}. {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.other %}
+<li> {{ pub.authors}} *{{pub.title}}*, {{ pub.journal }} **{{ pub.volume }}** ({{pub.year}}). DOI: {{ pub.DOI }}. {% for link in pub.links %}   [**\[{{link[0]}}\]**]({{link[1]}}){% endfor %}{% if pub.other %}
 <ul style='margin-top: -1.5em;'>
     <li style="margin-left:2em;list-style-type: circle;"> <i> {{pub.other}} </i></li></ul>
     {% endif %}
 {% endfor %}
+
+</ol>
