@@ -13,7 +13,7 @@ permalink: cv
 **B.Sc. Chemistry** - Biological Emphasis & Minor Physics, University of Utah, *2013*<br/>
 **Ph.D. Biochemistry & Molecular Biophysics**, California Institute of Technology, *expected 2020* 
 <div style="padding-left: 1em; margin-top:-2em;">
-<i>Thesis topic:</i> The Molecular Biophysics of Physiological and Evolutionary Adaptation
+<i>Thesis topic:</i> The Molecular Biophysics of Physiological and Evolutionary Adaptation <br/>
 <i>Thesis adviser:</i> Professor Rob Phillips
 
 </div>
