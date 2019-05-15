@@ -3,9 +3,10 @@
   authors: "Rob Phillips, Nathan M. Belliveau, **Griffin Chure**, Hernan G. Garcia, Manuel Razo-Mejia, and Clarissa Scholes"
   journal: "Annual Reviews of Biophysics"
   year: 2019
-  DOI: N/A
+  volume: 48
+  DOI:  10.1146/annurev-biophys-052118-115525
   links:
-    Preprint on Arxiv: "https://arxiv.org/abs/1812.11627"
+    Available from publisher: "https://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-052118-115525"
 
 - pub:
   title: "Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution"
