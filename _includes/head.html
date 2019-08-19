@@ -1,25 +1,38 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }} | {{ site.description }}
+    {% else %}
+      {{ page.title }} | {{ site.title }}
+    {% endif %}
+  </title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
+  <link rel="stylesheet" href="{{ site.github.url }}/assets/css/syntax.css">
+  <!-- Use Atom -->
+  {% feed_meta %}
+  <!-- RSS-v2.0
+  <link href="{{ site.github.url }}/rss-feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.title }} | {{ site.description }}"/>
+  //-->
 
-  <title>{% if page.title %}{{ page.title | append: " - " | append: site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Marcellus|Marcellus+SC&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Bellefair|Cormorant+Infant|&display=swap" rel="stylesheet"> 
+  <!-- <link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre&display=swap" rel="stylesheet"> -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cardo|Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
-  {% assign v = site.time | date: "%Y%m%d%H%M%S" %}
-  <link rel="stylesheet" href="{{ "/assets/styles/core.css?v=" | append: v | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/styles/fontello.css?v=" | append: v | relative_url }}">
-  <link rel="stylesheet" href="{{ page.color_scheme | default: site.color_scheme | default: "default" | prepend: "/assets/styles/highlighting/" | append: ".css?v=" | append: v | relative_url }}">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
-
-  {% if page.mathjax or site.mathjax %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <style>.MathJax_ExBox { font-family: serif; }</style>
-  {% endif %}
-
-  {% if jekyll.environment == 'production' and site.google_analytics %}
+  <!-- Google Analytics -->
   {% include google-analytics.html %}
-  {% endif %}
+
+  <!-- Use Jekyll SEO plugin -->
+  {% seo %}
+
 </head>

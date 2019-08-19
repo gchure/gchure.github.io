@@ -1,16 +1,17 @@
----
-layout: blank
----
+<!doctype html>
+<html>
+
+{% include head.html %}
 
 <body>
 
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      {{ content }}
-    </div>
-    {% include retina-image.html %}
-  </main>
-
+<div class="container">
+  {% include header.html %}
+  <div class="posts-wrapper">
+    {{ content }}
+  </div>
   {% include footer.html %}
+</div>
 
 </body>
+</html>
