@@ -11,6 +11,8 @@ menu:
 - {name: 'CV', folder: 'cv', file: 'cv.html'}
 - {name: 'Research', folder: 'research', file: 'research.html'}
 - {name: 'Teaching', folder: 'teaching', file: 'teaching.html'}
+- {name: 'Showcase', folder: 'art', file: 'showcase.html'}
+
 # - {name: 'Writing', folder: 'pages', file: 'documentation.html'}
 # - {name: 'Photography', folder: 'pages', file: 'about.html'}
 
