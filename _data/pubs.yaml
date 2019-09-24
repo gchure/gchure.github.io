@@ -1,5 +1,20 @@
 - pub:
-  title: "Predictive shifts in free energy couple mutations to their phenotypic consequences"
+  title: "The Physiological Adaptability of a Simple Genetic Circuit."
+  authors: "**Griffin Chure**, Zofii A. Kaczmarek, and Rob Phillips."
+  Rob Phillips"
+  journal: "**In preparation**"
+  year: 2019
+
+
+- pub:
+  title: "Probing the Sequence-Dependent Dynamics of Endogenous and Synthetic RSSs in V(D)J Recombination"
+  authors: "Soichi Hirokawa, **Griffin Chure**, Nathan M. Belliveau, Geoffrey A. Lovely, Michael Anaya, David G. Schatz, David Baltimore, and Rob Phillips."
+  Rob Phillips"
+  journal: "**In preparation**"
+  year: 2019
+
+- pub:
+  title: "Predictive Shifts In Free Energy Couple Mutations To Their Phenotypic Consequences"
   authors: "**Griffin Chure**, Manuel Razo-Mejia, Nathan M. Belliveau, Tal Einav, Zofii A. Kaczmarek, Stephanie L. Barnes, Mitchell Lewis, and Rob Phillips"
   journal: PNAS
   volume: 116
@@ -22,7 +37,7 @@
     Available from publisher: "https://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-052118-115525"
 
 - pub:
-  title: "Connecting the dots between mechanosensitive channel abundance, osmotic shock, and survival at single-cell resolution"
+  title: "Connecting the Dots Between Mechanosensitive Channel Abundance, Osmotic Shock, and Survival At Single-Cell Resolution"
   authors: "**Griffin Chure**<sup>☭</sup>, Heun Jin Lee <sup>☭</sup>, Akiko Rasmussen, and Rob Phillips."
   journal: Journal of Bacteriology
   year: 2018
@@ -36,7 +51,7 @@
   other: <a href="https://jb.asm.org/content/200/23/e00594-18"> Selected as an article of significant interest in the December 2018 issue. </a>
 
 - pub:
-  title: "Tuning transcriptional regulation through signaling: A predictive theory of allosteric induction"
+  title: "Tuning Transcriptional Regulation Through Signaling: A Predictive Theory of Allosteric Induction"
   authors: "Manuel Razo-Mejia<sup>☭</sup>, Stephanie L. Barnes<sup>☭</sup>, Nathan M. Belliveau<sup>☭</sup>, **Griffin Chure**<sup>☭</sup>, Tal Einav<sup>☭</sup>, Mitchell Lewis, and Rob Phillips."
   journal: Cell Systems
   volume: 6
