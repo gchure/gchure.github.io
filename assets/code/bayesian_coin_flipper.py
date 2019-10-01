@@ -27,10 +27,10 @@ coin_flips = Slider(title='Display first log\u2081\u2080 coin flips',
                     start=0, end=6, step=0.001, value=1, 
                     bar_color=colors['light_purple'])
 coin_bias = Slider(title='Coin bias', start=0.001, end=1, step=0.001, value=0.5,
-                    bar_color=colors['light_purple'])
-prior_mu = Slider(title='Prior µ', start=0, end=1, step=0.001, value=0.5,
+                    bar_color=colors['black'])
+prior_alpha = Slider(title='Prior α', start=0.1, end=30, step=0.01, value=0.5,
                     bar_color=colors['light_orange'])
-prior_sig = Slider(title='Prior σ', start=0.0001, end=5, step=0.0001, value=0.1,
+prior_beta = Slider(title='Prior β', start=0.1, end=30, step=0.01, value=0.5,
                     bar_color=colors['light_orange'])
 
 # Set up a plot showing the bias and calculated bias as the number of flips
@@ -112,19 +112,17 @@ function lngamma(z) {
       return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x)-Math.log(z);
   }
 
+function logbeta(a, b, x) {
+    var numer = (a - 1) * Math.log(x) + (b - 1) * Math.log(1 - x);
+    var norm_const = lngamma(a) + lngamma(b) - lngamma(a + b);
+    return numer - norm_const;
+}
 
 // Define the log likelihood
 function logLike(n, N, p) {
     var binomCoeff = lngamma(N + 1) - lngamma(n + 1) - lngamma(N - n + 1)
     var prob = n * Math.log(p) +  (N - n) * Math.log(1 - p)
     return binomCoeff + prob;
-}
-
-// Define the log prior
-function logPriorNormal(x) { 
-    var prefactor = -0.5 * Math.log(Math.sqrt(2 * Math.PI * Math.pow(prior_sig.value, 2)));
-    var expon = - Math.pow(x - prior_mu.value, 2) / (Math.pow(prior_sig.value, 2));
-    return prefactor + expon
 }
 
 function logSumExp(vals) {
@@ -143,7 +141,7 @@ for (var i = 0; i < post_source.data['probability'].length; i++) {
     var prob = post_source.data['probability'][i]
     var log_likelihood = logLike(n_heads, n_flips, prob);
 
-    log_prior = logPriorNormal(prob);
+    log_prior = logbeta(prior_alpha.value, prior_beta.value, prob);
     log_posterior[i] = log_likelihood + log_prior;
     prior[i] = Math.exp(log_prior);
 }
@@ -173,8 +171,8 @@ post_source.change.emit();
 
 # Define the callbacks
 args = {'coin_bias':coin_bias, 
-        'prior_mu':prior_mu, 
-        'prior_sig':prior_sig, 
+        'prior_alpha':prior_alpha, 
+        'prior_beta':prior_beta, 
         'flip_viewer':coin_flips,
         'post_source':post_source,
         'flip_source':flip_source,
@@ -186,13 +184,13 @@ viewer = CustomJS(args=args, code=viewer_cb + inference_cb)
 initialize.js_on_click(flipper)
 coin_bias.js_on_change('value', bias_js)
 coin_flips.js_on_change('value', viewer)
-prior_sig.js_on_change('value', viewer)
-prior_mu.js_on_change('value', viewer)
+prior_beta.js_on_change('value', viewer)
+prior_alpha.js_on_change('value', viewer)
 
 
 # Define the plot layout
 box1 = WidgetBox(coin_flips, coin_bias)
-box2 = WidgetBox(prior_mu, prior_sig)
+box2 = WidgetBox(prior_alpha, prior_beta)
 row1 = bokeh.layouts.row(box1, box2)
 lay = bokeh.layouts.column(initialize, row1, post_ax)
 
