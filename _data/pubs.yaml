@@ -1,4 +1,35 @@
 - pub:
+  title: >
+    First-principles prediction of the information processing capacity of
+    a simple genetic circuit
+  authors: > 
+    Manuel Razo-Mejia, Sarah Marzen, **Griffin Chure**, Muir Morrison, Rachel
+    Taubman, and Rob Phillips.
+  journal: preprint on arXiv
+  year: 2020
+  doi: "10.1101/594325 " 
+  links:
+    Open Access PDF: "https://arxiv.org/abs/2005.03214"
+    Paper Website: "https://rpgroup.caltech.edu/chann_cap"
+    GitHub Repository: "https://github.com/rpgroup-pboc/chann_cap"
+
+- pub: 
+  title: >
+    Theoretical investigation of a genetic switch for metabolic
+    adaptation
+  authors: >
+    Kathrin S. Laxhuber, Muir Morrison, **Griffin Chure**, Charlotte
+    Strandkvist, Kyle L. Naughton, and Rob Phillips.
+  journal: PLoS ONE
+  year: 2020
+  volume: 15
+  issue: (5)
+  doi: "10.1371/journal.pone.0226453"
+  links:
+    Open Access PDF: >
+      https://journals.plos.org/plosone/article/comments?id=10.1371/journal.pone.0226453
+
+- pub:
   title: "Physiological Adaptability and Parametric Versatility in a Simple Genetic Circuit."
   authors: "**Griffin Chure**, Zofii A. Kaczmarek, and Rob Phillips."
   journal: preprint on bioRxiv 
