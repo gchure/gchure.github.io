@@ -1,7 +1,5 @@
 - pub:
-  title: >
-    First-principles prediction of the information processing capacity of
-    a simple genetic circuit
+  title: First-principles prediction of the information processing capacity of a simple genetic circuit
   authors: > 
     Manuel Razo-Mejia, Sarah Marzen, **Griffin Chure**, Muir Morrison, Rachel
     Taubman, and Rob Phillips.
@@ -14,9 +12,7 @@
     GitHub Repository: "https://github.com/rpgroup-pboc/chann_cap"
 
 - pub: 
-  title: >
-    Theoretical investigation of a genetic switch for metabolic
-    adaptation
+  title: Theoretical investigation of a genetic switch for metabolic adaptation
   authors: >
     Kathrin S. Laxhuber, Muir Morrison, **Griffin Chure**, Charlotte
     Strandkvist, Kyle L. Naughton, and Rob Phillips.
