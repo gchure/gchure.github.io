@@ -3,13 +3,15 @@
   authors: > 
     Manuel Razo-Mejia, Sarah Marzen, **Griffin Chure**, Muir Morrison, Rachel
     Taubman, and Rob Phillips.
-  journal: preprint on arXiv
+  journal: Physical Review E
+  volume: 102
   year: 2020
-  doi: "10.1101/594325 " 
+  doi: "10.1101/PhysRevE.102.022404" 
   links:
     Open Access PDF: "https://arxiv.org/abs/2005.03214"
     Paper Website: "https://rpgroup.caltech.edu/chann_cap"
     GitHub Repository: "https://github.com/rpgroup-pboc/chann_cap"
+  other: Highlighted as an "Editor's Suggested Article" in the August 2020 issue
 
 - pub: 
   title: Theoretical investigation of a genetic switch for metabolic adaptation

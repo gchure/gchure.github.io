@@ -8,7 +8,7 @@ title: About
 <img style="width: 50%; border-radius: 10px; border: 0px solid;" src="{{site.github_url}}/assets/img/jericocoara.jpg">
 </div>
 </center>
-I’m an $$n$$<sup>th</sup> year biophysics graduate student in the lab of [Rob
+I’m a postdoctoral scholar in the lab of [Rob
 Phillips](https://www.rpgroup.caltech.edu) at [Caltech](https://www.caltech.edu)
 in Pasadena, CA. I am deeply in love with anything microbial,
 quantitative, or wrapped in tortillas. I firmly believe that the future of
