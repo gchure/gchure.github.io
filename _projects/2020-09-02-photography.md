@@ -1,6 +1,6 @@
 ---
 title: 'Photography'
-subtitle: 'Optics, but for fun.'
+subtitle: ''
 description: 
 featured_image: '/images/iguacu.jpeg'
 permalink: '/photography/'
