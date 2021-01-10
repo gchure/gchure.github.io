@@ -6,4 +6,5 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-sitemap'
 end
-gem "em-websocket", "~> 0.5.1"
+
+gem "em-websocket", "~> 0.5.2"
