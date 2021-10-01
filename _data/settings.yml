@@ -24,7 +24,7 @@ menu_settings:
 footer_settings:
   logo_image: 
   logo_width: 200
-  footer_tagline: '<a href="http://mailto:gchure@caltech.edu"> gchure@caltech.edu</a>'
+  footer_tagline: '<a href="http://mailto:gchure@stanford.edu"> gchure@stanford.edu</a>'
 
 grid_settings:
   overlay_opacity: 0.8
