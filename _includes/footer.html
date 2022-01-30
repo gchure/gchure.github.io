@@ -1,26 +1,15 @@
-<footer class="footer">
+<footer class="mt-auto py-3 text-center">
 
-	<div class="wrap">
+  <small class="text-muted mb-2"> 
+  </small>
 
-		{% if site.data.settings.footer_settings.logo_image %}
-		<a href="{{ site.baseurl }}/" class="footer__logo">
-			<img src="{{ site.data.settings.footer_settings.logo_image | relative_url }}" class="footer__logo__img">
-		</a>
-		{% else %}
-		<a href="{{ site.baseurl }}/" class="footer__title">
-			<!-- {{ site.data.settings.basic_settings.site_title }} -->
-		</a>
-		{% endif %}
+  {% include social.html %} <br/>
+  <span style="font-size: small; color: lightgray;">(c) Griffin Chure 2022. Theme adapted from <a style="color: gray;" href="https://youssefraafatnasry.github.io/portfolYOU/">portfolYou</a></span>
 
-		<p class="footer__text">{{ site.data.settings.footer_settings.footer_tagline }}</p>
-
-		<div class="footer__copyright">
-			<span>© {{ 'now' | date: "%Y" }} {{ site.data.settings.basic_settings.site_title }}</span>
-			<a href="https://jekyllthemes.io" target="_blank">Jekyll Themes</a>
-		</div>
-
-		{% include socials.html %}
-
-	</div>
-
+  <!-- {%- assign theme_name = "portfolYOU" -%} -->
+  <!-- {%- assign theme_repo = "https://github.com/YoussefRaafatNasry/portfolYOU" -%} -->
+  <!-- <small id="attribution">
+    theme <a href="{{ theme_repo }}">{{ theme_name }}</a>
+  </small> -->
+  
 </footer>

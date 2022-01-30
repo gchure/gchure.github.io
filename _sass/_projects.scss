@@ -1,0 +1,30 @@
+.project.card {
+  border-radius: $rounded-borders;
+  text-decoration: none !important;
+  margin: 10px auto;
+
+  h1, h2, h3, h4, h5 {
+  font-family: 'Nunito Sans', sans-serif;
+  text-transform: none;
+  font-weight: 700;
+  }
+  // text-align: justify;
+  // hyphens: auto;
+
+  .card-img-top {
+    background-color: hsla(0, 0, 0, 0);
+    border-radius: $rounded-borders $rounded-borders 0 0;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
+
+  transition: transform 400ms;
+
+  &:hover:not(.post) {
+    transform: translateY(-2px);
+    box-shadow: -2px 8px 40px -12px rgba(0, 0, 0, 0.24);
+  }
+}

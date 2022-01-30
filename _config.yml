@@ -1,57 +1,84 @@
-site: Griffin Chure
+### Site Settings ###
+title               : griffin chure, phd
+description         : >-
+                    A biologist pretending to be a physicist with domain 
+                    expertise.  
+baseurl             : 
+repository          : 
+remote_theme        : 
+open_new_tab        : true
 
-url: ""
-baseurl: 
 
+### Plugins ###
+plugins:
+  - jemoji
+
+### Navbar Settings ###
+nav_exclude:                                            # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+
+
+### Author Info ###
+author:
+  name              : 
+  image             : seg.png
+  email             : gchure@stanford.edu
+  github            : gchure
+  twitter           : gdchure
+
+
+### Posts ###
+permalink: /blog/:title
+
+
+### Collections ###
 collections:
-  pages:
-    output: true
-    permalink: /:name
-  posts:
-    output: true
-    permalink: /blog/:slug
   projects:
     output: true
-    permalink: /project/:slug
+    permalink: /projects/:name
+  publications:
+    output: true
+    permalink: /publications/:name
 
+
+
+### Disqus ###
+# disqus:
+  # shortname: your-short-name-disqus                     # Your website Shortname on disqus
+
+
+### Analytics ###
+analytics:
+  enabled: true
+  google:
+    tracking_id: UA-109526846-1 
+
+
+### Defaults for collections ###
 defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  -
-    scope:
+  - scope:
       path: ""
       type: "projects"
     values:
-      layout: "project"
+      layout: "page"
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: false                                   # Set to true to enable disqus comments
 
-markdown: kramdown
 
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  
-sass:
-  style: compressed
+### Exclude from processing ###
+exclude:
 
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-
-paginate: 6
-paginate_path: "/blog/page:num/"
-  
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"
