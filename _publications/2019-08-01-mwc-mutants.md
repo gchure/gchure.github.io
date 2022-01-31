@@ -36,7 +36,7 @@ authors:
     - Stephanie L. Barnes
     - Mitchell Lewis
     - Rob Phillips 
-journal: PNAS 116 (37)
+journal: PNAS
 buttons:
     - name: PDF
       icon: fas fa-file-pdf

@@ -32,7 +32,7 @@ authors:
     - Rachel Taubman
     - Muir Morrison 
     - Rob Phillips
-journal: Physical Review E 102 (022404)
+journal: Physical Review E
 buttons:
     - name: PDF
       icon: fas fa-file-pdf

@@ -15,7 +15,7 @@ authors:
     - Tal Einav<sup>☭</sup>
     - Mitchell Lewis
     - Rob Phillips
-journal: Cell Systems (6)
+journal: Cell Systems
 notes:
   - Featured in "Splitting the world with absolute measurements" by Dr. Quincey Justman
 buttons:

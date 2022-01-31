@@ -46,7 +46,7 @@ authors:
     - Jane Kondev
     - Julie Theriot
     - Rob Phillips
-journal: Cell Systems 12 (9)
+journal: Cell Systems
 notes:
     - † Selected as the cover article for the September 2021 issue of Cell Systems.
 buttons:
