@@ -1,6 +1,6 @@
 ---
 layout: publication
-image: anthropocene/cover.png
+image: anthropocene/cover.jpeg
 year: 2021
 doi: "arXiv:2101.09620"
 title: >
