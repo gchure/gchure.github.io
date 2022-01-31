@@ -27,7 +27,7 @@ allowing us to make quantitative descriptions of how things grow in a wide array
 of conditions, making it an ideal physiological framework to interrogate the 
 dynamics of growth, competition, and adaptation in complex and ever-changing environments.
 
-<a href="https://doi.org/10.1101/2022.01.27/477569" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure and Cremer, 2022. "An Optimal Regulation of Fluxes Dictates Microbial Growth In and Out of Steady-State."</span> </a>
+<a href=" https://doi.org/10.1101/2022.01.27.477569" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure and Cremer, 2022. "An Optimal Regulation of Fluxes Dictates Microbial Growth In and Out of Steady-State."</span> </a>
 
 <hr/>
 ### Using simple math to understand complex proteomes
