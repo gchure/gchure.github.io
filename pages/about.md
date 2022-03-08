@@ -12,7 +12,7 @@ weight: 1
     <img style="height: auto;" src="{{site.baseurl}}/assets/images/jellyfish3.png">
     <center>
     <span style="color: #6c757d;"> he / him / his</span>
-<a class="m-1 btn btn-outline-secondary btn-md btn-block" href="{{site.baseurl}}/assets/pdfs/GriffinChure_CV_2022-01-29.pdf">
+<a class="m-1 btn btn-outline-secondary btn-md btn-block" href="{{site.baseurl}}/assets/pdfs/GriffinChure_CV_2022-03-08.pdf">
 <i class="fas fa-file-pdf"></i> curriculum vitae </a>
 <a class="m-1 btn btn-outline-secondary btn-md " href="mailto:gchure@stanford.edu">
 <i class="fa fa-envelope"></i></a>
