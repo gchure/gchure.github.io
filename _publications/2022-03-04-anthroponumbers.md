@@ -2,6 +2,7 @@
 layout: publication
 image: anthroponumbers/cover.png
 year: 2022
+status: Under review at <i>Patterns</i>
 doi: "10.1101/2022.03.04.483053"
 title: >
     Anthroponumbers.org: A Quantitative Database of Human Impacts on Planet Earth 
