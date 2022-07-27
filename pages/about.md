@@ -9,7 +9,7 @@ weight: 1
  
 <div class="masonry">
   <div class="mItem">
-    <img style="height: auto;" src="{{site.baseurl}}/assets/images/jellyfish3.png">
+    <img style="height: auto;" src="{{site.baseurl}}/assets/images/griffin.png">
     <center>
     <span style="color: #6c757d;"> he / him / his</span>
 <a class="m-1 btn btn-outline-secondary btn-md btn-block" href="{{site.baseurl}}/assets/pdfs/GriffinChure_CV_2022-07-11.pdf">
