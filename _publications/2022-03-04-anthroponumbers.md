@@ -1,26 +1,12 @@
 ---
 layout: publication
-image: anthroponumbers/cover.png
+image: anthroponumbers/cover.jpg
 year: 2022
-status: Under review at <i>Patterns</i>
 doi: "10.1101/2022.03.04.483053"
 title: >
     Anthroponumbers.org: A Quantitative Database of Human Impacts on Planet Earth 
 abstract: >
-    Over the last 10,000 years, human activities have transformed the Earth
-    through farming, forestry, mining and industry. The complex results of these
-    activities are now observed and quantified as “human impacts” on Earth’s
-    atmosphere, oceans, biosphere and geochemistry. While myriad studies have
-    explored facets of human impacts on the planet, they are necessarily
-    technical and often tightly-focused. Thus, finding reliable quantitative
-    information requires a significant investment of time to assess each
-    quantity, its methods of determination, and associated uncertainty. We
-    present the Human Impacts Database (www.anthroponumbers.org), which houses a
-    diverse array of such quantities. We review a subset of these values and how
-    they help build intuition for understanding the Earth-human system. While
-    collation alone does not tell us how to best ameliorate human impacts, we
-    contend that any future plans should be made in light of a quantitative
-    understanding of the interconnected ways in which humans impact the planet. 
+  The Human Impacts Database (www.anthroponumbers.org) is a curated, searchable resource housing quantitative data relating to the diverse anthropogenic impacts on our planet, with topics ranging from sea-level rise to livestock populations, greenhouse gas emissions, fertilizer use, and beyond. Each entry in the database reports a quantitative value (or a time series of values) along with clear referencing of the primary source, the method of measurement or estimation, an assessment of uncertainty, and links to the underlying data, as well as a permanent identifier called a Human Impacts ID (HuID). While there are other databases that house some of these values, they are typically focused on a single topic area, like energy usage or greenhouse gas emissions. The Human Impacts Database facilitates access to carefully curated data, acting as a quantitative resource pertaining to the myriad ways in whic h humans have an impact on the Earth, for practicing scientists, the general public, and those involved in education for sustainable development alike. We outline the structure of the database, describe our curation procedures, and use this database to generate a graphical summary of the current state of human impacts on the Earth, illustrating both their numerical values and their intimate interconnections.
 authors:
     - Griffin Chure<sup>☭</sup>
     - Rachel A. Banks<sup>☭</sup>
@@ -31,7 +17,13 @@ authors:
     - Yinon M. Bar-On
     - Ron Milo
     - Rob Phillips
-journal: bioRxiv
+journal: Patterns
+volume: 3
+notes:
+  - Selected as the cover article of the September 2022 issue of <i>Patterns</i>
+  - Featured in <a href="https://www.caltech.edu/about/news/the-human-impact-on-the-environment">"A Quantitative Snapshot of Human Impact on the Planet"</a> by Lori Dajose at Caltech.
+  - Featured in <a href="https://www.wired.com/story/striking-graphs-that-show-humanitys-domination-of-the-earth/">"Striking Graphs That Show Humanity’s Domination of the Earth"</a> by Matt Simon at Wired Magazine.
+  - Featured in <a href="https://www.eurekalert.org/news-releases/959527">"Anthroponumbers.org compiles data about human-environment interactions into one website"</a> on EurekAlert.org by AAAS.
 buttons:
     - name: PDF
       icon: fas fa-file-pdf
@@ -41,7 +33,7 @@ buttons:
       link: anthroponumbers/Chure_Banks_et_al_2022_SI.pdf
     - name: Graphical Snapshot 
       icon: fas fa-solid fa-camera-retro
-      link: anthroponumbers/Chure_Banks_et_al_2022_SnapShot.pdf
+      link: anthroponumbers/Chure_Banks_et_al_2022_Snapshot.pdf
     - name: Anthroponumbers.org 
       icon: fas fa-laptop
       link: "https://anthroponumbers.org"
