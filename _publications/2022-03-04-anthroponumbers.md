@@ -27,13 +27,13 @@ notes:
 buttons:
     - name: PDF
       icon: fas fa-file-pdf
-      link: anthroponumbers/Chure_Banks_et_al_2022_main.pdf
+      link: anthroponumbers/Chure_Banks_et_al_2022_main_patterns.pdf
     - name: SI
       icon: fas fa-file-pdf
-      link: anthroponumbers/Chure_Banks_et_al_2022_SI.pdf
+      link: anthroponumbers/Chure_Banks_et_al_2022_SI_patterns.pdf
     - name: Graphical Snapshot 
       icon: fas fa-solid fa-camera-retro
-      link: anthroponumbers/Chure_Banks_et_al_2022_Snapshot.pdf
+      link: anthroponumbers/Chure_Banks_et_al_2022_Snapshot_patterns.pdf
     - name: Anthroponumbers.org 
       icon: fas fa-laptop
       link: "https://anthroponumbers.org"
