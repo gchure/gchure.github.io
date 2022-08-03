@@ -9,7 +9,8 @@ layout: default
   <p>{%for auth in page.authors%}{%if auth == page.authors.last %}{% if page.authors.length > 2 %},{%endif%} and {%endif%}{% if auth !=  page.authors.first and auth != page.authors.last %}, {%endif%}{% if auth contains "Griffin Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}{%endif%}{%endfor%}</p>  
   
 
-  {% for button in page.buttons %}<a class="m-1 btn btn-outline-primary btn-md" href="{{site.baseurl}}/assets/publications/{{button.link}}">
+  {% for button in page.buttons %}
+  {% if "http" not in page.button.name %}<a class="m-1 btn btn-outline-primary btn-md" href="{{site.baseurl}}/assets/publications/{{button.link}}">{%else%}<<a class="m-1 btn btn-outline-primary btn-md" href="{{button.link}}">{%endif%}
   <i class="{{button.icon}}"></i> {{button.name}}</a>
   {%endfor%} 
   <br/>
