@@ -35,7 +35,7 @@ of bacterial physiology to make predictive models of evolution. I firmly believe
 that the future of biology relies on an intuition for the physics that governs
 it, especially in evolutionary biology.
 
-Being the spawn of two paleontologists, I grew up in rural Utah where I was
+Being the progeny of two paleontologists, I grew up in rural Utah where I was
 raised in  a concoction of contradictions. While my weekends were spent with my
 parents helping dig up dinosaur bones and grappling with geology of my
 surroundings, my weekdays were spent in the rural public education system where
