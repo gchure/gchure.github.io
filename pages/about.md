@@ -59,7 +59,7 @@ number of scientific resources, such as the [Human Impacts
 Database](https://anthroponumbers.org). Beyond science, I love taking
 photographs, making programmatically generated art, vector based illustration 
 (like those on my [research page]({{site.baseurl}}/research)), and exploring the wild lands
-of California.I also watch my fair share of films and television about which I have hard-headed
+of California. I also watch my fair share of films and television about which I have hard-headed
 opinions, such as an affinity for Alejandro Jodorowsky and Julia Ducournau and a disdain for Star
 Wars and Marvel.
 
