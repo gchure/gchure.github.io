@@ -6,9 +6,11 @@ layout: default
 
 
   <h2> {{page.title}}</h2>
-  <p>{%for auth in page.authors%}{%if auth == page.authors.last %}{% if page.authors.length > 2 %},{%endif%} and
+  <p>{%for auth in page.authors%}{% if page.authors.length > 1 %}{%if auth == page.authors.last %}{% if
+    page.authors.length > 2 %},{%endif%} and
     {%endif%}{% if auth != page.authors.first and auth != page.authors.last %}, {%endif%}{% if auth contains "Griffin
-    Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}{%endif%}{%endfor%}</p>
+    Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}{%endif%}{%else%}<span
+      style="font-weight: 700;">{{auth}}</span>{% endif %}{%endfor%}</p>
 
 
   {% for button in page.buttons %}
