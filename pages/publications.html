@@ -40,9 +40,9 @@ weight: 3
           </h6>
           <p id="{{ pub_id }}-desc" class="card-text" , style="font-size:10pt;">
             {%for auth in pub.authors%}{%if pub.authors.length > 1 %}{%if auth == pub.authors.last %}{% if
-            pub.authors.length > 2%},{%endif%} and
-            {%endif%}{% if auth != pub.authors.first and auth != pub.authors.last %}, {%endif%}{% if auth contains
-            "Griffin Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}{%endif%}{% else %}<span
+            pub.authors.length > 2%},{%endif%} and {%endif%}{% if auth != pub.authors.first and auth != pub.authors.last
+            %}, {%endif%}{% if auth contains
+            "Griffin Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}, {%endif%}{% else %}<span
               style='font-weight: 700'>{{auth}}</span>{%endif%}{%endfor%}
           </p>
           <p id="{{pub_id}}-info" class="card-text"></p>
