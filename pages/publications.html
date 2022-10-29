@@ -41,10 +41,10 @@ weight: 3
           <p id="{{ pub_id }}-desc" class="card-text" , style="font-size:10pt;">
             {% for auth in pub.authors %}{%if auth == pub.authors.last%}{% if auth
             !=
-            pub.authors.first %}and{%endif%}
+            pub.authors.first %}{%endif%}
             {%if auth contains "Griffin Chure" %}<b>{{auth}}</b>{%else%}{{auth}}{%endif%}{%else%}{% if auth contains
             "Griffin Chure"
-            %}<b>{{auth}}</b>{% if page.authors.length > 2 %},{%endif%}{%else%}{{auth}}{% if page.authors.length >
+            %}<b>{{auth}}</b>,{% if pub.authors.length > 2 %},{%endif%}{%else%}{{auth}},{% if pub.authors.length >
             2 %},{%endif%} {%endif%} {%endif%} {%endfor%}
           </p>
           <p id="{{pub_id}}-info" class="card-text"></p>
