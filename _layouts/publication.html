@@ -6,17 +6,18 @@ layout: default
 
 
   <h2> {{page.title}}</h2>
-  <p>{%for auth in page.authors%}{% if page.authors.length > 1 %}{%if auth == page.authors.last %}{% if
-    page.authors.length > 2 %},{%endif%} and
-    {%endif%}{% if auth != page.authors.first and auth != page.authors.last %}, {%endif%}{% if auth contains "Griffin
-    Chure" %}<span style='font-weight: 700;'>{{auth}}</span>{%else%}{{auth}}{%endif%}{%else%}<span
-      style="font-weight: 700;">{{auth}}</span>{% endif %}{%endfor%}</p>
+  <p></p> {% for auth in page.authors %}{%if auth == page.authors.last%}{% if auth
+  !=
+  pub.authors.first %}and{%endif%}
+  {%if auth contains "Griffin Chure" %}<b>{{auth}}</b>{%else%}{{auth}}{%endif%}{%else%}{% if auth contains
+  "Griffin Chure"
+  %}<b>{{auth}}</b>{% if page.authors.length > 2 %},{%endif%}{%else%}{{auth}}{% if page.authors.length >
+  2 %},{%endif%} {%endif%} {%endif%} {%endfor%}<br />
 
 
   {% for button in page.buttons %}
-  {% unless page.button.link contains "http" %}<a class="m-1 btn btn-outline-primary btn-md"
-    href="{{button.link}}">{%else%}<a class="m-1 btn btn-outline-primary btn-md"
-      href="{{site.baseurl}}/assets/publications/{{button.link}}">{%endunless%}
+  {% if button.link contains "https" %}<a class="m-1 btn btn-outline-primary btn-md" href="{{button.link}}">{%else%}<a
+      class="m-1 btn btn-outline-primary btn-md" href="{{site.baseurl}}/assets/publications/{{button.link}}">{%endif%}
       <i class="{{button.icon}}"></i> {{button.name}}</a>
     {%endfor%}
     <br />

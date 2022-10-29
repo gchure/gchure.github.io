@@ -39,10 +39,14 @@ weight: 3
             <p style="font-weight: 600; text-align: left;">{{ pub.title }}</p>
           </h6>
           <p id="{{ pub_id }}-desc" class="card-text" , style="font-size:10pt;">
-            {% for auth in pub.authors %}{%if pub.authors.length == 1%}<b>{{auth}}.</b>
-            {%else%}{% if pub.authors.length == 2 and auth == pub.authors.last%} and {{auth}}{% else
-            %}{{auth}}{%endif%}{% if pub.authors.length > 2%}{% if auth != pub.authors.last}{{auth}}, {%else%} and
-            {{auth}}{%endif%}{%endif%}{%endfor%}</p>
+            {% for auth in pub.authors %}{%if auth == pub.authors.last%}{% if auth
+            !=
+            pub.authors.first %}and{%endif%}
+            {%if auth contains "Griffin Chure" %}<b>{{auth}}</b>{%else%}{{auth}}{%endif%}{%else%}{% if auth contains
+            "Griffin Chure"
+            %}<b>{{auth}}</b>{% if page.authors.length > 2 %},{%endif%}{%else%}{{auth}}{% if page.authors.length >
+            2 %},{%endif%} {%endif%} {%endif%} {%endfor%}
+          </p>
           <p id="{{pub_id}}-info" class="card-text"></p>
           {% if pub.status == 'under review' or pub.status == 'in revision' %}
           <span class="badge badge-pill text-danger border border-danger ml-1"> {{pub.status}} </span>
