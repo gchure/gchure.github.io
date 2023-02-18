@@ -18,32 +18,34 @@ computational sciences.
 <hr/>
 
 
-### Computational tutorials for *Bi1 - The Great Ideas of Biology*
+### Example Computational tutorials
 
 <b>Basic DNA Sequence Analysis</b><br/> 
-<a class="m-1 btn btn-outline-secondary btn-sm" href="http://bi1.caltech.edu/code/t01_sequence_analysis.html">Tutorial Notebook</a><a class="m-1 btn btn-outline-secondary btn-sm" href="http://rpdata.caltech.edu/courses/bi1_2017/data/mabuya_atlantica.zip">Data Set</a><br/>
+<a class="m-1 btn btn-outline-secondary btn-sm" href="http://bi1.caltech.edu/2017/code/t01_sequence_analysis.html">Tutorial Notebook</a><a class="m-1 btn btn-outline-secondary btn-sm" href="http://rpdata.caltech.edu/courses/bi1_2017/data/mabuya_atlantica.zip">Data Set</a><br/>
 A tutorial on using DNA sequence to understand the biogeography of Skinks on Fernando de Naronha. This tutorial is written to given an introduction to basic programming skills with Python and provides introductory intuition on how DNA sequence can be used to 
  identify relationships between species.
 
-<b>Euler-Forward Integration</b> <br/><a class='m-1 btn btn-outline-secondary btn-sm ' href='http://bi1.caltech.edu/code/t02_numerical_integration.html'>Tutorial Notebook</a><br/> 
+<b>Euler-Forward Integration</b> <br/><a class='m-1 btn btn-outline-secondary btn-sm ' href='http://bi1.caltech.edu/2017/code/t02_numerical_integration.html'>Tutorial Notebook</a><br/> 
 This tutorial was used to teach undergraduates how to integrate ordinary differential equations using the Euler-Forward method.
 
 
 <b>Stochastic Simulations</b><br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/code/t03_stochastic_simulations.html'>Tutorial Notebook</a><br/>
-A primer on writing stochastic simulations and using them to understand one of the most powerful forces of evolution - genetic drift.
+<a class='m-1 btn btn-outline-secondary btn-sm' href='https://drive.google.com/file/d/190VsVUXook0rSiqPbozoTPJv4W634d3A/view?usp=sharing''>Tutorial Notebook</a><br/>
+A primer on using the Gillespie algorithm to understand the dynamics of constitutive expression.
 
 
 <b>Quantitative Image Processing</b><br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/code/t04_quantitative_image_processing.html'>Tutorial Notebook</a><a class='m-1 btn btn-outline-secondary btn-sm' href='http://rpdata.caltech.edu/courses/bi1_2017/data/ecoli_images.zip'>Data Set</a><br/> 
+<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/2017/code/t04_quantitative_image_processing.html'>Tutorial Notebook</a><a class='m-1 btn btn-outline-secondary btn-sm' href='http://rpdata.caltech.edu/courses/bi1_2017/data/ecoli_images.zip'>Data Set</a><br/> 
 This tutorial covered the basics of quantitative image processing and led
 students through segmentation of single-celled bacteria to compute the
 intensity distribution of a YFP reporter gene. 
 
-
+<b>Bifurcation Analysis of an Autoactivation Circuit</b><br/>
+<a class='m-1 btn btn-outline-secondary btn-sm' href="https://colab.research.google.com/drive/1iOTfgVvFkPT_q0VmIFxJjMMnkwLEsUH4?usp=sharing"> Tutorial Notebook</a><br/>
+This tutorial explores the dynamics of an autoactivation genetic circuit and explains the origin of bifurcations.  
 
 <b>Chemical Master Equations</b> <br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/code/t06_chemical_master_equation.html'>Tutorial Notebook</a><br/> 
+<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/2017/code/t06_chemical_master_equation.html'>Tutorial Notebook</a><br/> 
 Chemical master equations are incredibly useful in understanding the "rates and weights" of biological processes. This tutorial teaches the student how to write them and explore their behavior computationally.
 
 
