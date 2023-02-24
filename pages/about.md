@@ -28,10 +28,13 @@ weight: 1
 </div>
 </div>
 
-The short version is that I'm a biologist turning into a physicist. The slightly
-longer version is that I'm an NSF postdoctoral fellow at Stanford sitting in the
-lab of <a href="https://cremerlab.com">Jonas Cremer</a> where I use principles
-of bacterial physiology to make predictive models of evolution. I firmly believe
+The short version is that I'm a antidisciplinary scientist. The medium-length version is
+that I'm a quantitatively minded person who uses theoretical
+physics and computational analysis to design biochemical experiments that
+address questions in environmental science and ecology. The slightly longer
+version is that I'm an NSF postdoctoral fellow at Stanford sitting in the lab of
+<a href="https://cremerlab.com">Jonas Cremer</a> where I use principles of
+bacterial physiology to make predictive models of evolution. I firmly believe
 that the future of biology relies on an intuition for the physics that governs
 it, especially in evolutionary biology.
 
@@ -54,7 +57,7 @@ manner of scientific study with me where I bring it to bear on the complex
 phenomena that emerge at the intersection of bacterial physiology, ecology, and
 evolution. 
 
-Beyond biology, I am an amateur web developer and help build and maintain a
+Beyond quantitative science, I am an amateur web developer and help build and maintain a
 number of scientific resources, such as the [Human Impacts
 Database](https://anthroponumbers.org). Beyond science, I love taking
 photographs, making programmatically generated art, vector based illustration 
