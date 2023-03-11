@@ -1,13 +1,11 @@
 ### Site Settings ###
 title               : griffin chure, phd
 description         : >-
-                    A biologist pretending to be a physicist with domain 
-                    expertise.  
 baseurl             : 
 repository          : 
 remote_theme        : 
 open_new_tab        : true
-cv_filename         : GriffinChure_CV_2023-02-17.pdf
+cv_filename         : GriffinChure_2023-03-10.pdf
 
 
 ### Plugins ###
