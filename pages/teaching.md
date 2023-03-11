@@ -30,7 +30,7 @@ This tutorial was used to teach undergraduates how to integrate ordinary differe
 
 
 <b>Stochastic Simulations</b><br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href='https://drive.google.com/file/d/190VsVUXook0rSiqPbozoTPJv4W634d3A/view?usp=sharing''>Tutorial Notebook</a><br/>
+<a class='m-1 btn btn-outline-secondary btn-sm' href='https://drive.google.com/file/d/190VsVUXook0rSiqPbozoTPJv4W634d3A/view?usp=sharing'>Tutorial Notebook</a><br/>
 A primer on using the Gillespie algorithm to understand the dynamics of constitutive expression.
 
 
