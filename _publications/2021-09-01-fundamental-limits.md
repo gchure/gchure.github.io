@@ -44,8 +44,8 @@ authors:
     - Christina L. Hueschen 
     - Hernan G. Garcia
     - Jane Kondev
-    - Julie Theriot
-    - Rob Phillips
+    - Julie Theriot<sup>⛧</sup>
+    - Rob Phillips<sup>⛧</sup>
 journal: Cell Systems
 notes:
     - † Selected as the cover article for the September 2021 issue of Cell Systems.

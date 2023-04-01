@@ -31,7 +31,7 @@ authors:
     - Griffin Chure
     - Rachel Taubman
     - Muir Morrison 
-    - Rob Phillips
+    - Rob Phillips<sup>⛧</sup>
 journal: Physical Review E
 buttons:
     - name: PDF

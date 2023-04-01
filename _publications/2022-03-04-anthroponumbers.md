@@ -8,7 +8,7 @@ title: >
 abstract: >
   The Human Impacts Database (www.anthroponumbers.org) is a curated, searchable resource housing quantitative data relating to the diverse anthropogenic impacts on our planet, with topics ranging from sea-level rise to livestock populations, greenhouse gas emissions, fertilizer use, and beyond. Each entry in the database reports a quantitative value (or a time series of values) along with clear referencing of the primary source, the method of measurement or estimation, an assessment of uncertainty, and links to the underlying data, as well as a permanent identifier called a Human Impacts ID (HuID). While there are other databases that house some of these values, they are typically focused on a single topic area, like energy usage or greenhouse gas emissions. The Human Impacts Database facilitates access to carefully curated data, acting as a quantitative resource pertaining to the myriad ways in whic h humans have an impact on the Earth, for practicing scientists, the general public, and those involved in education for sustainable development alike. We outline the structure of the database, describe our curation procedures, and use this database to generate a graphical summary of the current state of human impacts on the Earth, illustrating both their numerical values and their intimate interconnections.
 authors:
-    - Griffin Chure<sup>☭</sup>
+    - Griffin Chure<sup>☭,⛧</sup>
     - Rachel A. Banks<sup>☭</sup>
     - Avi I. Flamholz
     - Nicholas S. Sarai
@@ -16,7 +16,7 @@ authors:
     - Ignacio Lopez-Gomez
     - Yinon M. Bar-On
     - Ron Milo
-    - Rob Phillips
+    - Rob Phillips<sup>⛧</sup>
 journal: Patterns
 volume: 3
 notes:

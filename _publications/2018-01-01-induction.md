@@ -14,7 +14,7 @@ authors:
     - Griffin Chure<sup>☭</sup>
     - Tal Einav<sup>☭</sup>
     - Mitchell Lewis
-    - Rob Phillips
+    - Rob Phillips<sup>⛧</sup>
 journal: Cell Systems
 notes:
   - Featured in "Splitting the world with absolute measurements" by Dr. Quincey Justman

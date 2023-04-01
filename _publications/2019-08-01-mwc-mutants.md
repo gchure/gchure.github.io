@@ -35,7 +35,7 @@ authors:
     - Zofii A. Kaczmarek
     - Stephanie L. Barnes
     - Mitchell Lewis
-    - Rob Phillips 
+    - Rob Phillips<sup>⛧</sup>
 journal: PNAS
 buttons:
     - name: PDF

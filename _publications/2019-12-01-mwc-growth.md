@@ -34,7 +34,7 @@ abstract: >
 authors: 
     - Griffin Chure
     - Zofii A. Kaczmarek 
-    - Rob Phillips
+    - Rob Phillips<sup>⛧</sup>
 journal: bioRxiv
 buttons:
     - name: PDF

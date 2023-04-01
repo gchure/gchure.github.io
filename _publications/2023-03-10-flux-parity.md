@@ -22,8 +22,8 @@ abstract: >
     the theory as an ideal physiological framework to interrogate the dynamics of
     growth, competition, and adaptation in complex and ever-changing environments. 
 authors:
-    - Griffin Chure
-    - Jonas Cremer
+    - Griffin Chure<sup>⛧</sup>
+    - Jonas Cremer<sup>⛧</sup>
 journal: eLife
 buttons:
     - name: PDF + SI

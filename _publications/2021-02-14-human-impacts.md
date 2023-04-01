@@ -36,7 +36,7 @@ authors:
     - Ignacio Lopez-Gomez 
     - Yinon M. Bar-On
     - Ron Milo
-    - Rob Phillips
+    - Rob Phillips<sup>⛧</sup>
 journal: arxiv
 buttons:
     - name: PDF
