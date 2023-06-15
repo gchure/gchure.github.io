@@ -25,6 +25,8 @@ authors:
     - Griffin Chure<sup>⛧</sup>
     - Jonas Cremer<sup>⛧</sup>
 journal: eLife
+notes:
+  - 'Featured as a Spotlight Article by Avi Flamholz and Akshit Goyal:  <a href="https://www.sciencedirect.com/science/article/pii/S0966842X23001749?dgcid=author">"Matching metabolic supply to demand optimizes microbial growth."</a> Trends in Microbiology, 2023.'
 buttons:
     - name: PDF + SI
       icon: fas fa-file-pdf
