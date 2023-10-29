@@ -2,7 +2,6 @@
 layout: publication
 image: mwc_growth/cover.png
 year: 2019
-status: in revision
 doi: 10.1101/2019.12.19.878462 
 title: >
   Physiological Adaptability and Parametric Versatility in a Simple Genetic Circuit. 

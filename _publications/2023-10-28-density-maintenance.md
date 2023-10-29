@@ -12,7 +12,8 @@ authors:
     - Richa Sharma
     - Michael C. Lanz
     - Jonas Cremer
-journal: 
+journal: bioRxiv 
+doi: 10.1101/2023.10.28.564462
 buttons:
     - name: PDF
       icon: fas fa-file-pdf
