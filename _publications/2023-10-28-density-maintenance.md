@@ -16,10 +16,10 @@ journal:
 buttons:
     - name: PDF
       icon: fas fa-file-pdf
-      link: density_mainteance/Chure2023c_main.pdf
+      link: density_maintenance/Chure2023c_main.pdf
     - name: Appendix PDF
       icon: fas fa-file-pdf
-      link: density_mainteance/Chure2023c_appendix.pdf
+      link: density_maintenance/Chure2023c_appendix.pdf
     - name: GitHub Repository
       icon: fab fa-github
       link: "https://github.com/cremerlab/density_maintenance"
