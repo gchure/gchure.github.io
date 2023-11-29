@@ -39,8 +39,8 @@ summary: >
     on how fast cells can grow, and their abundances can be used to predict this
     speed. 
 authors:
-    - Nathan Belliveau<sup>☭</sup>
-    - Griffin Chure<sup>☭</sup>
+    - Nathan Belliveau<sup>*</sup>
+    - Griffin Chure<sup>*</sup>
     - Christina L. Hueschen 
     - Hernan G. Garcia
     - Jane Kondev
