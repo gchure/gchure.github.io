@@ -9,7 +9,7 @@ cv_filename         : GriffinChure_CV_2023-10-28.pdf
 
 
 ### Plugins ###
-plugins:
+plugins:r
   - jemoji
 
 ### Navbar Settings ###

@@ -9,7 +9,7 @@ weight: 1
  
 <div class="masonry">
   <div class="mItem">
-    <img style="height: auto;" src="{{site.baseurl}}/assets/images/headshot_2022.png">
+    <img style="height: auto;" src="{{site.baseurl}}/assets/images/headshot_2023.jpeg">
     <center>
     <span style="color: #6c757d;"> he / him / his</span>
 <a class="m-1 btn btn-outline-secondary btn-md btn-block" href="{{site.baseurl}}/assets/pdfs/{{site.cv_filename}}">
@@ -28,10 +28,7 @@ weight: 1
 </div>
 </div>
 
-The short version is that I'm a antidisciplinary scientist. The medium-length version is
-that I'm a quantitatively minded person who uses theoretical
-physics and computational analysis to design biochemical experiments that
-address questions in environmental science and ecology. The slightly longer
+The short version is that I'm an anti-disciplinary scientist. The slightly longer
 version is that I'm an NSF postdoctoral fellow at Stanford sitting in the lab of
 <a href="https://cremerlab.com">Jonas Cremer</a> where I use principles of
 bacterial physiology to make predictive models of evolution. I firmly believe
