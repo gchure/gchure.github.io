@@ -28,10 +28,22 @@ A tutorial on using DNA sequence to understand the biogeography of Skinks on Fer
 <b>Euler-Forward Integration</b> <br/><a class='m-1 btn btn-outline-secondary btn-sm ' href='http://bi1.caltech.edu/2017/code/t02_numerical_integration.html'>Tutorial Notebook</a><br/> 
 This tutorial was used to teach undergraduates how to integrate ordinary differential equations using the Euler-Forward method.
 
+<b>A Chemical Master Equation for Constitutive Gene Expression</b> <br/>
+<a class='m-1 btn btn-outline-secondary btn-sm' href='https://colab.research.google.com/drive/1Lg0HKBgAo83DrUV1MNLqP3psfJp5u1HJ?usp=sharing'>Tutorial Notebook</a><br/> 
+Chemical master equations are incredibly useful in understanding the "rates and weights" of biological processes. This tutorial teaches the student how to write them and explore their behavior computationally,
+focusing on the Poisson statistics of the constitutive promoter.
 
-<b>Stochastic Simulations</b><br/>
+<b>Bifurcation Analysis of an Autoactivation Circuit</b><br/>
+<a class='m-1 btn btn-outline-secondary btn-sm' href="https://colab.research.google.com/drive/1iOTfgVvFkPT_q0VmIFxJjMMnkwLEsUH4?usp=sharing"> Tutorial Notebook</a><br/>
+This tutorial explores the dynamics of an autoactivation genetic circuit and explains the origin of bifurcations.  
+
+<b>A Stochastic Simulation of Constitutive Gene Expression</b><br/>
 <a class='m-1 btn btn-outline-secondary btn-sm' href='https://drive.google.com/file/d/190VsVUXook0rSiqPbozoTPJv4W634d3A/view?usp=sharing'>Tutorial Notebook</a><br/>
 A primer on using the Gillespie algorithm to understand the dynamics of constitutive expression.
+
+<b>The Random Walk<b><br/>
+<a class="m-1 btn btn-outline-secondary btn-sm" href='https://colab.research.google.com/drive/1a_8T8zamZXYn0b2fNfgwC9NpuE3nE0td?usp=sharing'>Tutorial Notebook</a><br/>
+A primer on the random walk and how to simulate them using Python.
 
 
 <b>Quantitative Image Processing</b><br/>
@@ -39,14 +51,6 @@ A primer on using the Gillespie algorithm to understand the dynamics of constitu
 This tutorial covered the basics of quantitative image processing and led
 students through segmentation of single-celled bacteria to compute the
 intensity distribution of a YFP reporter gene. 
-
-<b>Bifurcation Analysis of an Autoactivation Circuit</b><br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href="https://colab.research.google.com/drive/1iOTfgVvFkPT_q0VmIFxJjMMnkwLEsUH4?usp=sharing"> Tutorial Notebook</a><br/>
-This tutorial explores the dynamics of an autoactivation genetic circuit and explains the origin of bifurcations.  
-
-<b>Chemical Master Equations</b> <br/>
-<a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/2017/code/t06_chemical_master_equation.html'>Tutorial Notebook</a><br/> 
-Chemical master equations are incredibly useful in understanding the "rates and weights" of biological processes. This tutorial teaches the student how to write them and explore their behavior computationally.
 
 
 <hr/>
