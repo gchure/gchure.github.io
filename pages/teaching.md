@@ -20,13 +20,8 @@ computational sciences.
 
 ### Example Computational tutorials
 
-<b>Basic DNA Sequence Analysis</b><br/> 
-<a class="m-1 btn btn-outline-secondary btn-sm" href="http://bi1.caltech.edu/2017/code/t01_sequence_analysis.html">Tutorial Notebook</a><a class="m-1 btn btn-outline-secondary btn-sm" href="http://rpdata.caltech.edu/courses/bi1_2017/data/mabuya_atlantica.zip">Data Set</a><br/>
-A tutorial on using DNA sequence to understand the biogeography of Skinks on Fernando de Naronha. This tutorial is written to given an introduction to basic programming skills with Python and provides introductory intuition on how DNA sequence can be used to 
- identify relationships between species.
-
-<b>Euler-Forward Integration</b> <br/><a class='m-1 btn btn-outline-secondary btn-sm ' href='http://bi1.caltech.edu/2017/code/t02_numerical_integration.html'>Tutorial Notebook</a><br/> 
-This tutorial was used to teach undergraduates how to integrate ordinary differential equations using the Euler-Forward method.
+<b>Euler-Forward Integration</b> <br/><a class='m-1 btn btn-outline-secondary btn-sm ' href='https://colab.research.google.com/drive/1-DOt39WYDz0uRajsFkEcBaDygu6Hwk-g?usp=sharing'>Tutorial Notebook</a><br/> 
+This tutorial was used to teach undergraduates how to integrate ordinary differential equations using the Forward-Euler method.
 
 <b>A Chemical Master Equation for Constitutive Gene Expression</b> <br/>
 <a class='m-1 btn btn-outline-secondary btn-sm' href='https://colab.research.google.com/drive/1Lg0HKBgAo83DrUV1MNLqP3psfJp5u1HJ?usp=sharing'>Tutorial Notebook</a><br/> 
@@ -41,16 +36,20 @@ This tutorial explores the dynamics of an autoactivation genetic circuit and exp
 <a class='m-1 btn btn-outline-secondary btn-sm' href='https://drive.google.com/file/d/190VsVUXook0rSiqPbozoTPJv4W634d3A/view?usp=sharing'>Tutorial Notebook</a><br/>
 A primer on using the Gillespie algorithm to understand the dynamics of constitutive expression.
 
-<b>The Random Walk<b><br/>
+<b>The Random Walk</b><br/>
 <a class="m-1 btn btn-outline-secondary btn-sm" href='https://colab.research.google.com/drive/1a_8T8zamZXYn0b2fNfgwC9NpuE3nE0td?usp=sharing'>Tutorial Notebook</a><br/>
-A primer on the random walk and how to simulate them using Python.
-
+A primer on the 1D random walk and how to simulate them using Python.
 
 <b>Quantitative Image Processing</b><br/>
 <a class='m-1 btn btn-outline-secondary btn-sm' href='http://bi1.caltech.edu/2017/code/t04_quantitative_image_processing.html'>Tutorial Notebook</a><a class='m-1 btn btn-outline-secondary btn-sm' href='http://rpdata.caltech.edu/courses/bi1_2017/data/ecoli_images.zip'>Data Set</a><br/> 
 This tutorial covered the basics of quantitative image processing and led
 students through segmentation of single-celled bacteria to compute the
 intensity distribution of a YFP reporter gene. 
+
+<b>Basic DNA Sequence Analysis</b><br/> 
+<a class="m-1 btn btn-outline-secondary btn-sm" href="http://bi1.caltech.edu/2017/code/t01_sequence_analysis.html">Tutorial Notebook</a><a class="m-1 btn btn-outline-secondary btn-sm" href="http://rpdata.caltech.edu/courses/bi1_2017/data/mabuya_atlantica.zip">Data Set</a><br/>
+A tutorial on using DNA sequence to understand the biogeography of Skinks on Fernando de Naronha. This tutorial is written to given an introduction to basic programming skills with Python and provides introductory intuition on how DNA sequence can be used to 
+ identify relationships between species.
 
 
 <hr/>
