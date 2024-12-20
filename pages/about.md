@@ -29,14 +29,14 @@ weight: 1
 </div>
 
 The short version is that I'm an anti-disciplinary scientist. The slightly longer
-version is that I'm an NSF postdoctoral fellow at Stanford sitting in the lab of
+version is that I'm a postdoctoral fellow at Stanford sitting in the lab of
 <a href="https://cremerlab.com">Jonas Cremer</a> where I use principles of
 bacterial physiology to make predictive models of evolution. I firmly believe
 that the future of biology relies on an intuition for the physics that governs
 it, especially in evolutionary biology.
 
 Being the progeny of two paleontologists, I grew up in rural Utah where I was
-raised in  a concoction of contradictions. While my weekends were spent with my
+raised in a concoction of contradictions. While my weekends were spent with my
 parents helping dig up dinosaur bones and grappling with geology of my
 surroundings, my weekdays were spent in the rural public education system where
 I was taught evolution was a lie, humans can't impact the Earth, and that
@@ -49,9 +49,9 @@ After studying biology and chemistry at the University of Utah, I earned a PhD
 in Biochemistry and Molecular Biophysics under the tutelage of [Rob Phillips](https://rpgroup.caltech.edu)
 at the California Institute of Technology. Through studying how bacterial cells
 control the action of their own genes, I learned how to approach biological
-problems from a physical and probabilistic perspective. I have carried this
+problems from a physical, probabilistic, and computational perspective. I have carried this
 manner of scientific study with me where I bring it to bear on the complex
-phenomena that emerge at the intersection of bacterial physiology, ecology, and
+phenomena that emerge at the intersection of molecular biophysics, bacterial physiology, and
 evolution. 
 
 Beyond quantitative science, I am a software engineer and help build and maintain a
@@ -59,7 +59,7 @@ number of scientific resources, such as the [Human Impacts
 Database](https://anthroponumbers.org) and [hplc-py](https://cremerlab.github.io/hplc-py). Beyond science, I love taking
 photographs, making programmatically generated art, vector based illustration 
 (like those on my [research page]({{site.baseurl}}/research)), and exploring the wild lands
-of California. I also watch my fair share of films and television about which I have hard-headed
+of California with my French Bulldog, Lola. I also watch my fair share of films and television about which I have hard-headed
 opinions, such as an affinity for Alejandro Jodorowsky and Julia Ducournau and a disdain for Star
 Wars and Marvel.
 
