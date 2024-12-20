@@ -54,7 +54,7 @@ manner of scientific study with me where I bring it to bear on the complex
 phenomena that emerge at the intersection of bacterial physiology, ecology, and
 evolution. 
 
-Beyond quantitative science, I am an amateur web developer and help build and maintain a
+Beyond quantitative science, I am a software developer and help build and maintain a
 number of scientific resources, such as the [Human Impacts
 Database](https://anthroponumbers.org). Beyond science, I love taking
 photographs, making programmatically generated art, vector based illustration 

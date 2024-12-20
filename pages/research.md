@@ -27,7 +27,7 @@ allowing us to make quantitative descriptions of how things grow in a wide array
 of conditions, making it an ideal physiological framework to interrogate the 
 dynamics of growth, competition, and adaptation in complex and ever-changing environments.
 
-<a href=" https://doi.org/10.1101/2022.01.27.477569" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure and Cremer, 2022. "An Optimal Regulation of Fluxes Dictates Microbial Growth In and Out of Steady-State."</span> </a>
+<a href=" https://doi.org/10.7554/eLife.84878" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure and Cremer, *eLife* 2023. "An Optimal Regulation of Fluxes Dictates Microbial Growth In and Out of Steady-State."</span> </a>
 
 <hr/>
 ### Using simple math to understand complex proteomes
@@ -43,7 +43,7 @@ surprisingly accurate and illustrate the preeminent importance of protein synthe
 defining growth. 
 
 
-<a href="https://doi.org/10.1016/j.cels.2021.06.002" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Belliveau, Chure, *et al.*, 2021. "Fundamental Limits on the Rate of Bacterial Growth and Their Influence on Proteomic Composition"</span> </a>
+<a href="https://doi.org/10.1016/j.cels.2021.06.002" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Belliveau^*, Chure^*, *et al.*, *Cell Systems* 2021. "Fundamental Limits on the Rate of Bacterial Growth and Their Influence on Proteomic Composition"</span> </a>
 
 <hr/>
 
@@ -75,5 +75,5 @@ without any brains.
 The greatest experiment of the last 10,000 years is the presence and action of modern human beings on planet Earth. At this point, the con- sequences of this experiment are being felt on many fronts. Yet, many people still hold the view that because the world is so “huge”, humans cannot really make a substantial impact. In this ongoing research we present a collection of what we have come to view as essential numbers that summarize the broad reach of human action across the planet, presenting a view of the impact of human presence on Earth. These numbers include recent estimates/measurements of the volume of meltwater released from ice-sheets on an annual basis, the year change in ocean acidity from the absorption of CO<sub>2</sub>, the background plutonium isotope reactivity found in soils stemming from nuclear weapons testing in the 1960’s, to the number of livestock on the planet to give a few of many examples. In collecting and scrutinizing these data, 
 I developed and curate the <a href="https://anthroponumbers.org">Human Impacts Database</a>, a internet database similar in spirit to the <a href="https://bionumbers.hms.harvard.edu">BioNumbers</a> website that we hope will be used by scientists and the general public alike. 
 
-<a href="https://arxiv.org/abs/2101.09620" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure, 2021. "The Anthropocene by the Numbers: A Quantitative Snapshot of Humanity's Influence on the Planet"</span> </a>
+<a href="https://doi.org/10.1016/j.patter.2022.100552" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure^* & Banks^* *et al.*, *Patterns* 2022. "Anthroponumbers.org: A Quantitative Database of Human Impacts on Planet Earth"</span> </a>
 
