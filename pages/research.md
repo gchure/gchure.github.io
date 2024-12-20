@@ -38,12 +38,11 @@ dynamics of growth, competition, and adaptation in complex and ever-changing env
 </div>
 </div>
 Recent years have seen an experimental deluge interrogating the relationship between bacterial growth rate, cell size, and protein content, quantifying the abundance of proteins across growth conditions with unprecedented resolution. However, we still lack a rigorous understanding of what sets the scale of these quantities and when protein abundances should (or should not) depend on growth rate. Using <a href="https://mitpress.mit.edu/books/street-fighting-mathematics">street-fighting mathematics</a>, I attempt to make order-of-magnitude estimates for the proteinaceous cellular requirements across myriad 
-conditions. These processes include, for example, the requirements for nutrient transport, lipid synthesis, and all steps of the central dogma.  Given the wealth of data in our hands for *E. coli*, we can compare our estimates to actual observations buried in "-omics" measurements. Remarkably, these  simple estimates are 
+conditions. These processes include, for example, the requirements for nutrient transport, lipid synthesis, and all steps of the central dogma.  Given the wealth of data in our hands for *E. coli*, we can compare our estimates to actual observations buried in "-omics" measurements. These  simple estimates are 
 surprisingly accurate and illustrate the preeminent importance of protein synthesis in 
 defining growth. 
 
-
-<a href="https://doi.org/10.1016/j.cels.2021.06.002" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Belliveau^*, Chure^*, *et al.*, *Cell Systems* 2021. "Fundamental Limits on the Rate of Bacterial Growth and Their Influence on Proteomic Composition"</span> </a>
+<a href="https://doi.org/10.1016/j.cels.2021.06.002" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Belliveau<sup>*</sup>, Chure<sup>*</sup>, *et al.*, *Cell Systems* 2021. "Fundamental Limits on the Rate of Bacterial Growth and Their Influence on Proteomic Composition"</span> </a>
 
 <hr/>
 
@@ -75,5 +74,5 @@ without any brains.
 The greatest experiment of the last 10,000 years is the presence and action of modern human beings on planet Earth. At this point, the con- sequences of this experiment are being felt on many fronts. Yet, many people still hold the view that because the world is so “huge”, humans cannot really make a substantial impact. In this ongoing research we present a collection of what we have come to view as essential numbers that summarize the broad reach of human action across the planet, presenting a view of the impact of human presence on Earth. These numbers include recent estimates/measurements of the volume of meltwater released from ice-sheets on an annual basis, the year change in ocean acidity from the absorption of CO<sub>2</sub>, the background plutonium isotope reactivity found in soils stemming from nuclear weapons testing in the 1960’s, to the number of livestock on the planet to give a few of many examples. In collecting and scrutinizing these data, 
 I developed and curate the <a href="https://anthroponumbers.org">Human Impacts Database</a>, a internet database similar in spirit to the <a href="https://bionumbers.hms.harvard.edu">BioNumbers</a> website that we hope will be used by scientists and the general public alike. 
 
-<a href="https://doi.org/10.1016/j.patter.2022.100552" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure^* & Banks^* *et al.*, *Patterns* 2022. "Anthroponumbers.org: A Quantitative Database of Human Impacts on Planet Earth"</span> </a>
+<a href="https://doi.org/10.1016/j.patter.2022.100552" class="btn btn-outline-secondary"><span style="font-size: 0.8em;"> Related Publication: Chure<sup>*</sup> & Banks<sup>*</sup> *et al.*, *Patterns* 2022. "Anthroponumbers.org: A Quantitative Database of Human Impacts on Planet Earth"</span> </a>
 

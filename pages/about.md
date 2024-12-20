@@ -49,14 +49,14 @@ After studying biology and chemistry at the University of Utah, I earned a PhD
 in Biochemistry and Molecular Biophysics under the tutelage of [Rob Phillips](https://rpgroup.caltech.edu)
 at the California Institute of Technology. Through studying how bacterial cells
 control the action of their own genes, I learned how to approach biological
-problems from a physical and probabalistic perspective. I have carried this
+problems from a physical and probabilistic perspective. I have carried this
 manner of scientific study with me where I bring it to bear on the complex
 phenomena that emerge at the intersection of bacterial physiology, ecology, and
 evolution. 
 
-Beyond quantitative science, I am a software developer and help build and maintain a
+Beyond quantitative science, I am a software engineer and help build and maintain a
 number of scientific resources, such as the [Human Impacts
-Database](https://anthroponumbers.org). Beyond science, I love taking
+Database](https://anthroponumbers.org) and [hplc-py](https://cremerlab.github.io/hplc-py). Beyond science, I love taking
 photographs, making programmatically generated art, vector based illustration 
 (like those on my [research page]({{site.baseurl}}/research)), and exploring the wild lands
 of California. I also watch my fair share of films and television about which I have hard-headed
