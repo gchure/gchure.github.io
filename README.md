@@ -1,11 +1,6 @@
-<div align="center">
-  <h1>portfolYOU</h1>
-  <i>A beautiful portfolio Jekyll theme that works with GitHub Pages.</i>
 
-  <a href="https://YoussefRaafatNasry.github.io/portfolYOU/">Live Demo</a>
-  •
-  <a href="https://YoussefRaafatNasry.github.io/portfolYOU/docs/">Documentation</a>
+# `gchure.github.io`
 
-  <a href="https://YoussefRaafatNasry.github.io/portfolYOU"><img src="screenshot.gif"></a>
-  <sub><sup>© 2019 portfolYOU, licensed under the <a href="./LICENSE">MIT License</a>.</sup></sub>
-</div>
+Source and build materials for my personal website. It is built using Jekyll
+and hosted via GitHub pages. The theme is a heavily-modified version of [PortfolYOU](https://github.com/yousinix/portfolYOU) by [`@yousinix`](https://github.com/yousinix). This website, like the original PortfolYOU, is licensed under a standard MIT license. Creative work (prose, illustrations, etc.) are 
+licensed under a Creative Commons CC-BY-4.0 license. 

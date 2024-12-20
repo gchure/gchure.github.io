@@ -22,8 +22,8 @@ weight: 1
 <i class="fab fa-github"></i></a>
 <a class="m-1 btn btn-outline-secondary btn-md " href="https://scholar.google.com/citations?user=hnr_VNMAAAAJ&hl=en">
 <i class="fas fa-graduation-cap"></i></a>
-<a class="m-1 btn btn-outline-secondary btn-md " href="https://twitter.com/gdchure">
-<i class="fab fa-twitter"></i></a>
+<a class="m-1 btn btn-outline-secondary btn-md " href="https://bsky.app/profile/gchure.bsky.social">
+<i class="fab fa-bluesky"></i></a>
 </center>
 </div>
 </div>
