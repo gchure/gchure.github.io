@@ -3,7 +3,8 @@ layout: publication
 image: density_maintenance/cover.jpg
 year: 2025
 title: >
-    Stringent Control Over Cytoplasmic and Membrane Densities Defines Cell Geometry In <i>Escherichia coli</i>
+  Coordination Between Cytoplasmic and Envelope Densities Shapes
+  Cellular Geometry in <i>Escherichia coli</i>
 abstract: >
     Microbes exhibit precise control over their composition and geometry in
     order to adapt and grow in diverse environments. However, the mechanisms
