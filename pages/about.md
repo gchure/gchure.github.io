@@ -11,7 +11,7 @@ weight: 1
   <div class="mItem">
     <img style="height: auto;" src="{{site.baseurl}}/assets/images/headshot_2023.jpeg">
     <center>
-    <span style="color: #6c757d;"> he / him / his</span>
+    <span style="color: #6c757d;"> he / him / his</span><br/>
 <!-- <a class="m-1 btn btn-outline-secondary btn-md btn-block" href="{{site.baseurl}}/assets/pdfs/{{site.cv_filename}}"> -->
 <!-- <i class="fas fa-file-pdf"></i> curriculum vitae </a> -->
 <a class="m-1 btn btn-outline-secondary btn-md " href="mailto:gchure@stanford.edu">
