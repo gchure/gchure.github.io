@@ -96,6 +96,7 @@ const allPublications = await getCollection('publications');
     max-width: 920px;
     margin: 0 auto;
     padding: 3rem 2rem;
+    overflow-x: hidden;
   }
 
   .page-header {
@@ -227,6 +228,7 @@ const allPublications = await getCollection('publications');
   .software-description :global(p) {
     margin: 0;
     margin-bottom: 1rem;
+    text-align: justify;
   }
 
   .software-description :global(p:last-child) {
@@ -241,17 +243,38 @@ const allPublications = await getCollection('publications');
 
     .software-header {
       order: 1;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .software-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .links-list {
+      max-width: 100%;
+    }
+
+    .link-button {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .software-image {
       order: 2;
       text-align: center;
+      overflow: hidden;
+      max-width: 100%;
     }
 
     .software-image img {
-      display: inline-block;
+      display: block;
       max-width: 100%;
+      width: 100%;
       height: auto;
+      max-height: none;
     }
   }
 

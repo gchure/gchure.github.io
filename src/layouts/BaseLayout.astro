@@ -1,79 +1,114 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Computational research scientist building software for biological discovery" } = Astro.props;
+const {
+  title,
+  description = "Computational research scientist building software for biological discovery",
+} = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
-  <script data-goatcounter="https://gchure.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</head>
-<body>
-  <div class="layout">
-    <nav class="top-nav">
-      <div class="nav-inner">
-        <a href="/" class="logo" data-text="gchure.bio">
-          <img src="/images/logo.svg" alt="Logo" class="logo-icon" />
-          <span class="logo-text">gchure.bio</span>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+      integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <script
+      data-goatcounter="https://gchure.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <nav class="top-nav">
+        <div class="nav-inner">
+          <a href="/" class="logo" data-text="gchure.bio">
+            <img src="/images/logo.svg" alt="Logo" class="logo-icon" />
+            <span class="logo-text">gchure.bio</span>
+          </a>
 
-        <!-- Mobile hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <!-- Mobile hamburger -->
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-        <div class="nav-links" id="nav-links">
-          <a href="/about" class:list={[{ active: currentPath === '/about' }]} data-text="ABOUT">
-            <span class="nav-text">ABOUT</span>
-          </a>
-          <a href="/research" class:list={[{ active: currentPath === '/research' }]} data-text="RESEARCH">
-            <span class="nav-text">RESEARCH</span>
-          </a>
-          <a href="/software" class:list={[{ active: currentPath === '/software' }]} data-text="SOFTWARE">
-            <span class="nav-text">SOFTWARE</span>
-          </a>
-          <a href="/publications" class:list={[{ active: currentPath.startsWith('/publications') }]} data-text="PUBLICATIONS">
-            <span class="nav-text">PUBLICATIONS</span>
-          </a>
-          <a href="/writing" class:list={[{ active: currentPath.startsWith('/writing') }]} data-text="WRITING">
-            <span class="nav-text">WRITING</span>
-          </a>
-          <a href="/art" class:list={[{ active: currentPath.startsWith('/art') }]} data-text="ART">
-            <span class="nav-text">ART</span>
-          </a>
+          <div class="nav-links" id="nav-links">
+            <a
+              href="/about"
+              class:list={[{ active: currentPath === "/about" }]}
+              data-text="ABOUT"
+            >
+              <span class="nav-text">ABOUT</span>
+            </a>
+            <a
+              href="/research"
+              class:list={[{ active: currentPath === "/research" }]}
+              data-text="RESEARCH"
+            >
+              <span class="nav-text">RESEARCH</span>
+            </a>
+            <a
+              href="/software"
+              class:list={[{ active: currentPath === "/software" }]}
+              data-text="SOFTWARE"
+            >
+              <span class="nav-text">SOFTWARE</span>
+            </a>
+            <a
+              href="/publications"
+              class:list={[{ active: currentPath.startsWith("/publications") }]}
+              data-text="PUBLICATIONS"
+            >
+              <span class="nav-text">PUBLICATIONS</span>
+            </a>
+            <a
+              href="/writing"
+              class:list={[{ active: currentPath.startsWith("/writing") }]}
+              data-text="WRITING"
+            >
+              <span class="nav-text">WRITING</span>
+            </a>
+            <a
+              href="/art"
+              class:list={[{ active: currentPath.startsWith("/art") }]}
+              data-text="ART"
+            >
+              <span class="nav-text">ART</span>
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-    <main class="main-content">
-      <slot />
-    </main>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <span class="mono">© {new Date().getFullYear()}</span>
-      <span class="divider">|</span>
-      <span class="mono">GRIFFIN CHURE</span>
+      </nav>
+      <main class="main-content">
+        <slot />
+      </main>
     </div>
-  </footer>
-</body>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="mono">© {new Date().getFullYear()}</span>
+        <span class="divider">|</span>
+        <span class="mono">GRIFFIN CHURE</span>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style>
@@ -116,7 +151,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .logo-text {
-    font-family: 'Geist Mono', monospace;
+    font-family: "Geist Mono", monospace;
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--text-primary);
@@ -132,7 +167,7 @@ const currentPath = Astro.url.pathname;
 
   .nav-links a {
     color: var(--text-secondary);
-    font-family: 'Geist Mono', monospace;
+    font-family: "Geist Mono", monospace;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     transition: color 0.15s ease;
@@ -187,7 +222,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .mono {
-    font-family: 'Geist Mono', monospace;
+    font-family: "Geist Mono", monospace;
     font-weight: 400;
   }
 
@@ -196,10 +231,15 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 768px) {
+    .top-nav {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+    }
+
     .nav-inner {
       padding: 0.6rem 1.5rem;
       gap: 1rem;
-      position: relative;
     }
 
     .hamburger {
@@ -207,36 +247,33 @@ const currentPath = Astro.url.pathname;
     }
 
     .nav-links {
-      position: absolute;
-      top: calc(100% + 1rem);
-      left: 0;
-      right: 0;
-      max-height: 0;
-      overflow: hidden;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      flex-direction: column;
-      gap: 0;
-      padding: 0;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(80px);
+      display: none;
     }
 
     .nav-links.active {
-      max-height: 400px;
+      display: flex;
+      position: fixed;
+      top: 4.5rem;
+      left: 5%;
+      right: 5%;
+      max-width: 920px;
+      margin: 0 auto;
+      flex-direction: column;
+      gap: 0;
       padding: 1rem 0;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      z-index: 1000;
     }
 
-    .nav-links a {
+    .nav-links.active a {
       padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border-color);
       font-size: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .nav-links a:last-child {
+    .nav-links.active a:last-child {
       border-bottom: none;
     }
 
@@ -247,35 +284,37 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  import { attachShuffleOnHover } from '../utils/shuffle';
+  import { attachShuffleOnHover } from "../utils/shuffle";
 
   // Apply shuffle effect to navbar links and logo
-  attachShuffleOnHover('.nav-links a', '.nav-text', 'data-text');
-  attachShuffleOnHover('.logo', '.logo-text', 'data-text');
+  attachShuffleOnHover(".nav-links a", ".nav-text", "data-text");
+  attachShuffleOnHover(".logo", ".logo-text", "data-text");
 
   // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
 
-  hamburger?.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks?.classList.toggle('active');
+  hamburger?.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks?.classList.toggle("active");
   });
 
   // Close menu when clicking a link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger?.classList.remove('active');
-      navLinks?.classList.remove('active');
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger?.classList.remove("active");
+      navLinks?.classList.remove("active");
     });
   });
 
   // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!hamburger?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
-      hamburger?.classList.remove('active');
-      navLinks?.classList.remove('active');
+  document.addEventListener("click", (e) => {
+    if (
+      !hamburger?.contains(e.target as Node) &&
+      !navLinks?.contains(e.target as Node)
+    ) {
+      hamburger?.classList.remove("active");
+      navLinks?.classList.remove("active");
     }
   });
-
 </script>
