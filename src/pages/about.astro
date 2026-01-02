@@ -185,20 +185,21 @@ import SocialLinks from '../components/SocialLinks.astro';
     .profile-section {
       float: none;
       margin: 0 0 2rem 0;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      display: flex;
+      flex-direction: column;
       gap: 1.25rem;
-      align-items: start;
+      align-items: center;
       width: 100%;
     }
 
     .about-image {
       width: 100%;
-      max-width: none;
+      max-width: 280px;
     }
 
     .profile-right {
       align-items: flex-start;
+      width: 100%;
     }
 
     .social-links-wrapper {
@@ -210,24 +211,24 @@ import SocialLinks from '../components/SocialLinks.astro';
     }
 
     .experience-header {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       margin-bottom: 0.5rem;
     }
 
     .experience-list {
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
 
     .experience-years {
-      font-size: 0.55rem;
+      font-size: 0.6rem;
     }
 
     .experience-role {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
     }
 
     .experience-place {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
     }
 
     .content-wrapper p {
