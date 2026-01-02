@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ShuffleText from '../components/ShuffleText.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+
+<BaseLayout title="Griffin Chure, PhD">
+  <div class="container">
+    <section class="hero">
+      <!-- Header: Name + Shuffling Text -->
+      <div class="hero-header">
+        <h1 class="name mono-upper">Griffin Chure, PhD</h1>
+        <p class="bio">
+          My name is Griffin. I am a computational scientist building software tools for <ShuffleText phrases={[
+            'biophysical modeling.',
+            'evolutionary-scale data processing.',
+            'quantitative biochemistry.',
+            'AI-enabled biological discovery.'
+          ]} />
+        </p>
+      </div>
+
+      <!-- Photo Gallery -->
+      <div class="photo-gallery">
+        <div class="gallery-item gallery-portrait">
+          <img src="/images/notes.png" alt="Griffin Chure" />
+        </div>
+        <div class="gallery-item gallery-landscape">
+          <img src="/images/diffraction.jpg" alt="Griffin Chure" />
+        </div>
+        <div class="gallery-item gallery-portrait">
+          <img src="/images/profile.png" alt="Griffin Chure" />
+        </div>
+        <div class="gallery-item gallery-landscape">
+          <img src="/images/seg_cropped.png" alt="Griffin Chure" />
+        </div>
+        <div class="gallery-item gallery-landscape">
+          <img src="/images/bridle.png" alt="Griffin Chure" />
+        </div>
+      </div>
+
+      <!-- Buttons: Social (Circular) + Navigation (Rectangular) -->
+      <div class="button-groups">
+        <SocialLinks />
+
+        <!-- Navigation Buttons (Rectangular) -->
+        <div class="nav-buttons">
+          <a href="/about" class="nav-button mono-upper" data-text="ABOUT">
+            <span class="nav-text">ABOUT</span>
+          </a>
+          <a href="/research" class="nav-button mono-upper" data-text="RESEARCH">
+            <span class="nav-text">RESEARCH</span>
+          </a>
+          <a href="/publications" class="nav-button mono-upper" data-text="PUBLICATIONS">
+            <span class="nav-text">PUBLICATIONS</span>
+          </a>
+ 
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Header: Name + Bio */
+  .hero-header {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  /* Photo Gallery - Rectangular Grid with portrait images */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Portrait images span 2 rows */
+  .gallery-portrait {
+    grid-row: span 2;
+  }
+
+  /* Landscape images span 1 row */
+  .gallery-landscape {
+    grid-row: span 1;
+  }
+
+  /* Specific positioning for balanced layout */
+  .gallery-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .gallery-item:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .gallery-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .gallery-item:nth-child(5) {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+
+  /* Button Groups Container */
+  .button-groups {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  /* Navigation Buttons (Rectangular) */
+  .nav-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav-button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 0.7rem;
+    font-family: 'Geist Mono', monospace;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-button:hover {
+    border-width: 2px;
+    padding: calc(0.5rem - 1px) calc(1rem - 1px);
+  }
+
+  .nav-text {
+    display: inline-block;
+  }
+
+  @keyframes shuffle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .nav-button:hover .nav-text {
+    animation: shuffle 0.3s ease-in-out;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      gap: 1rem;
+    }
+
+    .button-groups {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-buttons {
+      justify-content: center;
+    }
+
+    .name {
+      font-size: 1.25rem;
+    }
+
+    .bio {
+      font-size: 0.85rem;
+    }
+
+    .photo-gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 150px);
+      gap: 0.4rem;
+    }
+
+    /* Reset mobile grid positioning */
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    /* Last image spans full width */
+    .gallery-item:nth-child(5) {
+      grid-column: 1 / -1;
+    }
+
+    .nav-button {
+      font-size: 0.65rem;
+      padding: 0.45rem 0.85rem;
+    }
+
+    .nav-button:hover {
+      padding: calc(0.45rem - 1px) calc(0.85rem - 1px);
+    }
+  }
+</style>
+
+<script>
+  import { attachShuffleOnHover } from '../utils/shuffle';
+
+  // Apply shuffle effect to nav buttons
+  attachShuffleOnHover('.nav-button', '.nav-text', 'data-text');
+</script>

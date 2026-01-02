@@ -1,0 +1,35 @@
+---
+title: 'hplc-py: A Python Utility For Rapid Quantification of Complex Chemical Chromatograms'
+date: '2024-02-16'
+authors:
+  - name: Griffin Chure
+    corr: true
+  - name: Jonas Cremer
+journal: 'JOSS'
+tags: ['software']
+DOI: '10.21105/joss.06270'
+links:
+  - name: PDF
+    url: 'Chure2024.pdf'
+  - name: Publisher
+    url: 'https://joss.theoj.org/papers/10.21105/joss.06270'
+  - name: Software Documentation
+    url: 'https://cremerlab.github.io/hplc-py/' 
+  - name: GitHub Repository
+    url: 'https://github.com/cremerlab/hplc-py'
+abstract: >
+    High-Performance Liquid Chromatography (HPLC) and Gas Chromatography are
+    analytical techniques which allow for the quantitative characterization of
+    the chemical components of mixtures. Technological advancements in sample
+    preparation and mechanical automation have allowed HPLC to become a
+    high-throughput tool which poses new challenges for reproducible and rapid
+    analysis of the resulting chromatograms. Here we present hplc-py, a Python
+    package that permits rapid and reliable quantitation of component signals
+    within a chromatogram for pipelined workflows.  This is achieved by a signal
+    detection and quantitation algorithm which i) identifies windows of time
+    which contain peaks and ii) infers the parameters of a mixture of
+    amplitude-weighted skew-normal distributions which sum to reconstruct the
+    observed signal. This approach is particularly effective at deconvolving
+    highly overlapping signals, allowing for precise absolute quantitation of
+    chemical constituents with similar chromatographic retention times.
+---

@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Format date
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<BaseLayout title={`${post.data.title} - Griffin Chure`}>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/writing" class="mono-upper">← Back to Writing</a>
+    </nav>
+
+    <article class="post">
+      <header class="post-header">
+        <time class="post-date mono-upper">{formatDate(post.data.date)}</time>
+        <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-description">{post.data.description}</p>
+        <div class="post-tags">
+          {post.data.tags.map(tag => (
+            <a href={`/writing?tag=${tag}`} class="post-tag mono-upper">{tag}</a>
+          ))}
+        </div>
+      </header>
+
+      <div class="post-content">
+        <Content />
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text-primary);
+  }
+
+  .post-header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+  }
+
+  .post-date {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  .post-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .post-tag {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .post-tag:hover {
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
+  }
+
+  /* Post content styling */
+  .post-content {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .post-content :global(h2) {
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .post-content :global(h2::before) {
+    content: '> ';
+    color: var(--text-tertiary);
+  }
+
+  .post-content :global(h3) {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-content :global(a) {
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-tertiary);
+    transition: border-color 0.15s ease;
+  }
+
+  .post-content :global(a:hover) {
+    border-bottom-color: var(--text-primary);
+  }
+
+  .post-content :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .post-content :global(em) {
+    font-style: italic;
+  }
+
+  /* Code blocks */
+  .post-content :global(pre) {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .post-content :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  /* Inline code */
+  .post-content :global(code) {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.85em;
+    background: var(--bg-secondary);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: var(--text-primary);
+  }
+
+  /* Output blocks - styled differently from code */
+  .post-content :global(p strong:first-child:contains("Output")) {
+    color: var(--text-tertiary);
+  }
+
+  /* Lists */
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(li::marker) {
+    color: var(--text-tertiary);
+  }
+
+  /* Blockquotes */
+  .post-content :global(blockquote) {
+    border-left: 3px solid var(--border-color);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  /* Math (if using KaTeX) */
+  .post-content :global(.math) {
+    overflow-x: auto;
+  }
+
+  /* Horizontal rule */
+  .post-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+  }
+
+  /* Images */
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+  }
+
+  /* Tables */
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+  }
+
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+
+  .post-content :global(th) {
+    background: var(--bg-secondary);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .post-content :global(tr:hover td) {
+    background: var(--bg-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .post-title {
+      font-size: 1.25rem;
+    }
+
+    .post-description {
+      font-size: 0.9rem;
+    }
+
+    .post-content {
+      font-size: 0.9rem;
+    }
+
+    .post-content :global(pre) {
+      padding: 1rem;
+      font-size: 0.8rem;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+  }
+</style>

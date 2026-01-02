@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImage } from 'astro:assets';
+
+const categories = [
+  { slug: 'landscape', title: 'Landscape', description: 'Vistas and environments' },
+  { slug: 'people', title: 'People', description: 'Portraits and figures' },
+  { slug: 'flora-fauna', title: 'Flora & Fauna', description: 'Plants and animals' },
+  { slug: 'illustrations', title: 'Illustrations', description: 'Drawings and digital art' },
+
+];
+
+// Load all images from gallery folders
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/gallery/**/*.{jpg,jpeg,png,gif,webp}',
+  { eager: true }
+);
+
+// Generate thumbnails for ALL images in each category
+const categoriesWithAllPreviews = await Promise.all(
+  categories.map(async (cat) => {
+    const categoryImages = Object.entries(allImages)
+      .filter(([path]) => path.includes(`/gallery/${cat.slug}/`))
+      .map(([_, module]) => module.default);
+
+    if (categoryImages.length === 0) {
+      return { ...cat, previews: [] };
+    }
+
+    // Generate optimized thumbnails for all images
+    const thumbnails = await Promise.all(
+      categoryImages.map(async (img) => {
+        const thumbnail = await getImage({
+          src: img,
+          width: 400,
+          height: 300,
+          fit: 'cover',
+          quality: 80,
+          format: 'webp',
+        });
+        return thumbnail.src;
+      })
+    );
+
+    return { ...cat, previews: thumbnails };
+  })
+);
+---
+
+<BaseLayout title="Art - Griffin Chure">
+  <div class="container">
+    <header class="page-header">
+      <h1 class="mono-upper">Art</h1>
+       As a scientist, I seek to understand my surroundings through the objective lens of math and the powerful tools of probability. As a sentimental creature, I want
+to experience the world through art – namely photography and illustration. Whenever I can, I try to 
+blend these interests. Below are examples of some of my recent(ish) photography and a collection of my 
+scientific interests.
+    </header>
+
+    <div class="categories">
+      {categoriesWithAllPreviews.map((cat) => (
+        <a href={`/art/${cat.slug}`} class="category-card" data-previews={JSON.stringify(cat.previews)}>
+          <div class="card-image">
+            {cat.previews.length > 0 && (
+              <img src={cat.previews[0]} alt="" loading="lazy" />
+            )}
+          </div>
+          <div class="card-content">
+            <h2 class="mono-upper">{cat.title}</h2>
+            <p>{cat.description}</p>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .page-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-card:hover {
+    border-color: var(--text-tertiary);
+    transform: translateY(-2px);
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-secondary);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .category-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .category-card h2 {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+  }
+
+  .category-card p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .category-card .arrow {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.15s ease;
+  }
+
+  .category-card:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .categories {
+      grid-template-columns: 1fr;
+    }
+
+    .card-image {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
+
+<script>
+  // Randomize preview images on page load
+  document.querySelectorAll('.category-card').forEach((card) => {
+    const previewsData = card.getAttribute('data-previews');
+    if (!previewsData) return;
+
+    const previews = JSON.parse(previewsData);
+    if (previews.length === 0) return;
+
+    const img = card.querySelector('.card-image img') as HTMLImageElement;
+    if (!img) return;
+
+    // Pick a random image
+    const randomSrc = previews[Math.floor(Math.random() * previews.length)];
+    img.src = randomSrc;
+  });
+</script>

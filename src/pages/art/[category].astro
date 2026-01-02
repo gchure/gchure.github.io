@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImage } from 'astro:assets';
+
+// Define valid categories
+const categories: Record<string, { title: string; description: string }> = {
+  landscape: { title: 'Landscape', description: '' },
+  people: { title: 'People', description: '' },
+  illustrations: { title: 'Illustrations', description: '' },
+  'flora-fauna': { title: 'Flora & Fauna', description: '' },
+};
+
+// Load all images from all category folders
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/gallery/**/*.{jpg,jpeg,png,gif,webp}',
+  { eager: true }
+);
+
+export function getStaticPaths() {
+  return [
+    { params: { category: 'landscape' } },
+    { params: { category: 'people' } },
+    { params: { category: 'illustrations' } },
+    { params: { category: 'flora-fauna' } },
+  ];
+}
+
+const { category } = Astro.params;
+const categoryInfo = categories[category];
+
+if (!categoryInfo) {
+  return Astro.redirect('/art');
+}
+
+// Filter images for this category and generate optimized thumbnails
+const rawImages = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/gallery/${category}/`))
+  .map(([path, module]) => ({
+    image: module.default,
+    filename: path.split('/').pop() || '',
+  }))
+  .sort((a, b) => a.filename.localeCompare(b.filename));
+
+// Generate optimized thumbnails
+const galleryImages = await Promise.all(
+  rawImages.map(async (item) => {
+    const thumbnail = await getImage({
+      src: item.image,
+      width: 400,
+      quality: 80,
+      format: 'webp',
+    });
+    return {
+      ...item,
+      thumbnailSrc: thumbnail.src,
+      thumbnailWidth: thumbnail.attributes.width,
+      thumbnailHeight: thumbnail.attributes.height,
+      fullSrc: item.image.src,
+      fullWidth: item.image.width,
+      fullHeight: item.image.height,
+    };
+  })
+);
+---
+
+<BaseLayout title={`${categoryInfo.title} - Art - Griffin Chure`}>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/art" class="mono-upper">← Back to Art</a>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="mono-upper">{categoryInfo.title}</h1>
+      <p>{categoryInfo.description}</p>
+    </header>
+
+    {galleryImages.length > 0 ? (
+      <div class="gallery" id="gallery">
+        {galleryImages.map((item) => (
+          <a
+            href={item.fullSrc}
+            data-pswp-width={item.fullWidth}
+            data-pswp-height={item.fullHeight}
+            target="_blank"
+            class="gallery-item"
+          >
+            <img
+              src={item.thumbnailSrc}
+              width={item.thumbnailWidth}
+              height={item.thumbnailHeight}
+              alt=""
+              loading="lazy"
+            />
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="empty-state">No images yet. Add images to <code>src/assets/gallery/{category}/</code></p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text-primary);
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .page-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  /* Masonry-style gallery grid */
+  .gallery {
+    columns: 3;
+    column-gap: 0.75rem;
+  }
+
+  .gallery-item {
+    display: block;
+    margin-bottom: 0.75rem;
+    break-inside: avoid;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    cursor: zoom-in;
+  }
+
+  .gallery-item:hover {
+    border-color: var(--text-tertiary);
+    transform: scale(1.01);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .empty-state {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .empty-state code {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .gallery {
+      columns: 2;
+      column-gap: 0.5rem;
+    }
+
+    .gallery-item {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery {
+      columns: 1;
+    }
+  }
+</style>
+
+<style is:global>
+  /* PhotoSwipe customization */
+  .pswp {
+    --pswp-bg: rgba(0, 0, 0, 0.95);
+  }
+
+  /* Hide download button */
+  .pswp__button--download {
+    display: none !important;
+  }
+</style>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+
+    // Zoom options
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 2,
+    maxZoomLevel: 4,
+
+    // UI options
+    zoom: true,
+    close: true,
+    counter: true,
+    arrowKeys: true,
+
+    // Padding around image
+    padding: { top: 40, bottom: 40, left: 40, right: 40 },
+  });
+
+  lightbox.init();
+</script>

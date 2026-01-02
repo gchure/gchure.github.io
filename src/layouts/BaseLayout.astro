@@ -1,0 +1,280 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Computational research scientist building software for biological discovery" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script data-goatcounter="https://gchure.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="top-nav">
+      <div class="nav-inner">
+        <a href="/" class="logo" data-text="gchure.bio">
+          <img src="/images/logo.svg" alt="Logo" class="logo-icon" />
+          <span class="logo-text">gchure.bio</span>
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="/about" class:list={[{ active: currentPath === '/about' }]} data-text="ABOUT">
+            <span class="nav-text">ABOUT</span>
+          </a>
+          <a href="/research" class:list={[{ active: currentPath === '/research' }]} data-text="RESEARCH">
+            <span class="nav-text">RESEARCH</span>
+          </a>
+          <a href="/software" class:list={[{ active: currentPath === '/software' }]} data-text="SOFTWARE">
+            <span class="nav-text">SOFTWARE</span>
+          </a>
+          <a href="/publications" class:list={[{ active: currentPath.startsWith('/publications') }]} data-text="PUBLICATIONS">
+            <span class="nav-text">PUBLICATIONS</span>
+          </a>
+          <a href="/writing" class:list={[{ active: currentPath.startsWith('/writing') }]} data-text="WRITING">
+            <span class="nav-text">WRITING</span>
+          </a>
+          <a href="/art" class:list={[{ active: currentPath.startsWith('/art') }]} data-text="ART">
+            <span class="nav-text">ART</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main class="main-content">
+      <slot />
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="mono">© {new Date().getFullYear()}</span>
+      <span class="divider">|</span>
+      <span class="mono">GRIFFIN CHURE</span>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+  .layout {
+    min-height: 100vh;
+  }
+
+  .top-nav {
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+    padding: 0 5%;
+  }
+
+  .nav-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0.6rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(80px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    height: 1.25rem;
+    width: auto;
+  }
+
+  .logo-text {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-size: 0.7rem;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--text-primary);
+  }
+
+  .nav-text {
+    display: inline-block;
+  }
+
+  /* Hamburger menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 60px);
+  }
+
+  .footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-primary);
+  }
+
+  .footer-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+  }
+
+  .mono {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 400;
+  }
+
+  .divider {
+    color: var(--border-color);
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner {
+      padding: 0.6rem 1.5rem;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      right: 0;
+      max-height: 0;
+      overflow: hidden;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(80px);
+    }
+
+    .nav-links.active {
+      max-height: 400px;
+      padding: 1rem 0;
+    }
+
+    .nav-links a {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.75rem;
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    .footer-inner {
+      padding: 1.5rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  import { attachShuffleOnHover } from '../utils/shuffle';
+
+  // Apply shuffle effect to navbar links and logo
+  attachShuffleOnHover('.nav-links a', '.nav-text', 'data-text');
+  attachShuffleOnHover('.logo', '.logo-text', 'data-text');
+
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks?.classList.toggle('active');
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('active');
+      navLinks?.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
+      hamburger?.classList.remove('active');
+      navLinks?.classList.remove('active');
+    }
+  });
+
+</script>

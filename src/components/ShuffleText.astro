@@ -1,0 +1,104 @@
+---
+interface Props {
+  phrases: string[];
+}
+
+const { phrases } = Astro.props;
+---
+
+<span class="shuffle-text" data-phrases={JSON.stringify(phrases)}></span>
+
+<style>
+  .shuffle-text {
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    min-width: 320px;
+    color: var(--text-primary);
+    line-height: inherit;
+    font-size: 0.7rem;
+    vertical-align: baseline;
+  }
+
+  .shuffle-text::after {
+    content: '_';
+    opacity: 0;
+    animation: none;
+  }
+
+  .shuffle-text.show-cursor::after {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
+  import { SHUFFLE_CHARS } from '../utils/shuffle';
+
+  class ShuffleText {
+    element: HTMLElement;
+    phrases: string[];
+    currentPhraseIndex: number = 0;
+    chars: string = SHUFFLE_CHARS;
+
+    constructor(element: HTMLElement, phrases: string[]) {
+      this.element = element;
+      this.phrases = phrases.map(p => p.toUpperCase());
+      this.animate();
+    }
+
+    async animate() {
+      while (true) {
+        const targetPhrase = this.phrases[this.currentPhraseIndex];
+        await this.shuffleToPhrase(targetPhrase);
+        this.element.classList.add('show-cursor');
+        await this.sleep(2500);
+        this.element.classList.remove('show-cursor');
+        this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
+      }
+    }
+
+    async shuffleToPhrase(targetPhrase: string) {
+      const maxIterations = 50;
+
+      for (let i = 0; i < maxIterations; i++) {
+        let displayText = '';
+
+        for (let j = 0; j < targetPhrase.length; j++) {
+          if (i > j * 2) {
+            displayText += targetPhrase[j];
+          } else {
+            displayText += this.randomChar();
+          }
+        }
+
+        this.element.textContent = displayText;
+        await this.sleep(20);
+      }
+
+      this.element.textContent = targetPhrase;
+    }
+
+    randomChar(): string {
+      return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+
+    sleep(ms: number): Promise<void> {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const element = document.querySelector('.shuffle-text') as HTMLElement;
+    if (element) {
+      const phrases = JSON.parse(element.dataset.phrases || '[]');
+      new ShuffleText(element, phrases);
+    }
+  });
+</script>

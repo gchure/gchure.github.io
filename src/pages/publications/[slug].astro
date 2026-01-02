@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { emphasizeAuthor, formatAuthors } from '../../utils/formatters';
+
+export async function getStaticPaths() {
+  const publications = await getCollection('publications');
+  return publications.map((pub) => ({
+    params: { slug: pub.slug },
+    props: { pub },
+  }));
+}
+
+const { pub } = Astro.props;
+const { Content } = await pub.render();
+
+// Check if any authors have equal or corr markers
+const hasEqual = pub.data.authors.some(a => a.equal);
+const hasCorr = pub.data.authors.some(a => a.corr);
+
+const formattedAuthors = formatAuthors(pub.data.authors);
+const year = new Date(pub.data.date).getFullYear();
+
+// Get PDF filename from links array
+const pdfLink = pub.data.links?.find(link => link.name.toLowerCase() === 'pdf');
+const pdfFilename = pdfLink?.url;
+const pdfUrl = pdfFilename ? `/pdfs/${pdfFilename}` : null;
+
+// Function to convert simple markup to HTML
+function formatAbstract(text: string) {
+  return text
+    // Italics: _text_ or *text*
+    .replace(/_([^_]+)_/g, '<i>$1</i>')
+    .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<i>$1</i>')
+    // Bold: __text__ or **text**
+    .replace(/__([^_]+)__/g, '<b>$1</b>')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    // Underline: ~~text~~
+    .replace(/~~([^~]+)~~/g, '<u>$1</u>')
+    // Superscript: ^text^
+    .replace(/\^([^^]+)\^/g, '<sup>$1</sup>');
+}
+---
+
+<BaseLayout title={`${pub.data.title} - Griffin Chure`}>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/publications" class="mono-upper">← Back to Publications</a>
+    </nav>
+
+    <article class="publication">
+      <header class="pub-header">
+        <h1 class="pub-title">{pub.data.title}</h1>
+
+        <div class="pub-metadata">
+          <div class="metadata-row">
+            <span class="metadata-label mono-upper">Authors:</span>
+            <div class="metadata-value-wrapper">
+              <p class="metadata-value authors" set:html={emphasizeAuthor(formattedAuthors)} />
+              {(hasEqual || hasCorr) && (
+                <p class="footnotes">
+                  {hasEqual && <span class="footnote">† Equal contribution</span>}
+                  {hasEqual && hasCorr && <span class="footnote-separator"> | </span>}
+                  {hasCorr && <span class="footnote">* Corresponding author</span>}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div class="metadata-row">
+            <span class="metadata-label mono-upper">Journal:</span>
+            <p class="metadata-value journal mono-upper">{pub.data.journal} · {year}</p>
+          </div>
+
+          {pub.data.DOI && (
+            <div class="metadata-row">
+              <span class="metadata-label mono-upper">DOI:</span>
+              <p class="metadata-value doi">
+                <a href={`https://doi.org/${pub.data.DOI}`} target="_blank" rel="noopener">{pub.data.DOI}</a>
+              </p>
+            </div>
+          )}
+
+          {pub.data.links && pub.data.links.length > 0 && (
+            <div class="metadata-row">
+              <span class="metadata-label mono-upper">Links:</span>
+              <div class="metadata-value pub-links">
+                {pub.data.links.map(link => {
+                  // If it's a PDF link with just a filename, prepend /pdfs/
+                  const href = link.name.toLowerCase() === 'pdf' && !link.url.startsWith('http')
+                    ? `/pdfs/${link.url}`
+                    : link.url;
+                  return (
+                    <a href={href} target="_blank" rel="noopener" class="link-button mono-upper">
+                      <span class="link-name">{link.name}</span>
+                      <span class="link-arrow">↗</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {pub.data.tags && pub.data.tags.length > 0 && (
+            <div class="metadata-row">
+              <span class="metadata-label mono-upper">Categories:</span>
+              <div class="metadata-value categories">
+                {pub.data.tags.map(tag => (
+                  <span class="category-tag mono-upper">{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+
+      {pub.data.abstract && (
+        <section class="abstract-section">
+          <h2 class="section-header mono-upper">> Abstract</h2>
+          <div class="abstract-content">
+            <p set:html={formatAbstract(pub.data.abstract)} />
+          </div>
+        </section>
+      )}
+
+      {Content && (
+        <section class="additional-content">
+          <Content />
+        </section>
+      )}
+
+      {pdfUrl && (
+        <section class="pdf-section">
+          <h2 class="section-header mono-upper">> PDF</h2>
+          <div id="adobe-pdf-viewer" class="pdf-embed" data-pdf-url={pdfUrl} data-pdf-title={pub.data.title}></div>
+        </section>
+      )}
+    </article>
+  </div>
+</BaseLayout>
+
+<script>
+  // Adobe PDF Embed API
+  const viewerDiv = document.getElementById('adobe-pdf-viewer');
+  if (viewerDiv) {
+    const pdfUrl = viewerDiv.dataset.pdfUrl;
+    const pdfTitle = viewerDiv.dataset.pdfTitle;
+
+    // Load Adobe PDF Embed SDK
+    const script = document.createElement('script');
+    script.src = 'https://acrobatservices.adobe.com/view-sdk/viewer.js';
+    script.onload = () => {
+      document.addEventListener('adobe_dc_view_sdk.ready', () => {
+        const adobeDCView = new (window as any).AdobeDC.View({
+          clientId: 'efe06d0141e64262b8374f1d2edd29a8',
+          divId: 'adobe-pdf-viewer',
+        });
+
+        adobeDCView.previewFile({
+          content: { location: { url: window.location.origin + pdfUrl } },
+          metaData: { fileName: pdfTitle + '.pdf' }
+        }, {
+          embedMode: 'SIZED_CONTAINER',
+          showDownloadPDF: true,
+          showPrintPDF: true,
+          showAnnotationTools: false,
+        });
+      });
+    };
+    document.head.appendChild(script);
+  }
+</script>
+
+<style>
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text-primary);
+  }
+
+  .publication {
+    border: none;
+    background: transparent;
+  }
+
+  .pub-header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .pub-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .pub-metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .metadata-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .metadata-label {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    padding-top: 0.1rem;
+  }
+
+  .metadata-value-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .metadata-value {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .authors {
+    font-family: 'Geist', sans-serif;
+  }
+
+  .authors :global(.emphasized-author) {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--text-primary);
+  }
+
+  .journal {
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .doi {
+    font-size: 0.75rem;
+  }
+
+  .doi a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-tertiary);
+    transition: all 0.15s ease;
+  }
+
+  .doi a:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+
+  .pub-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .category-tag {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+    font-weight: 400;
+  }
+
+  .category-tag:not(:last-child)::after {
+    content: '·';
+    margin-left: 0.5rem;
+    color: var(--text-tertiary);
+  }
+
+  .footnotes {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-family: 'Geist', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .footnote {
+    display: inline;
+  }
+
+  .footnote-separator {
+    color: var(--text-tertiary);
+  }
+
+  .link-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    transition: all 0.15s ease;
+    min-width: 80px;
+    letter-spacing: 0.03em;
+  }
+
+  .link-name {
+    font-weight: 400;
+  }
+
+  .link-arrow {
+    opacity: 1;
+    transition: all 0.15s ease;
+  }
+
+  .link-button:hover {
+    border-width: 2px;
+    padding: calc(0.4rem - 1px) calc(0.75rem - 1px);
+  }
+
+  .section-header {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+  }
+
+  .abstract-section {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .abstract-content {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 0.9rem;
+  }
+
+  .abstract-content p {
+    margin: 0;
+  }
+
+  .additional-content {
+    padding: 2rem 0;
+    /* border-bottom: 1px solid var(--border-color); */
+  }
+
+  .additional-content :global(h1) {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: var(--text-primary);
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .additional-content :global(h1::before) {
+    content: '> ';
+  }
+
+  .additional-content :global(h1:first-child) {
+    margin-top: 0;
+  }
+
+  .additional-content :global(h2) {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: var(--text-primary);
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .additional-content :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .additional-content :global(p) {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .additional-content :global(ul),
+  .additional-content :global(ol) {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .additional-content :global(a) {
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-tertiary);
+    transition: all 0.15s ease;
+  }
+
+  .additional-content :global(a:hover) {
+    border-bottom-color: var(--text-primary);
+  }
+
+  .pdf-section {
+    padding: 2rem 0;
+  }
+
+  .pdf-embed {
+    height: 700px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .pdf-embed {
+      height: 500px;
+    }
+  }
+
+  .abstract-content :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .abstract-content :global(h2) {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .abstract-content :global(h3) {
+    font-size: 0.9rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-family: 'Geist Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .pub-title {
+      font-size: 1.1rem;
+    }
+
+    .metadata-row {
+      grid-template-columns: 75px 1fr;
+      gap: 0.75rem;
+    }
+
+    .metadata-label {
+      font-size: 0.65rem;
+    }
+
+    .pub-links {
+      gap: 0.5rem;
+    }
+
+    .link-button {
+      font-size: 0.65rem;
+      padding: 0.35rem 0.65rem;
+      min-width: 75px;
+    }
+
+    .link-button:hover {
+      padding: calc(0.35rem - 1px) calc(0.65rem - 1px);
+    }
+  }
+</style>

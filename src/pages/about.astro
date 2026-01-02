@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+
+<BaseLayout title="About - Griffin Chure">
+  <div class="container">
+    <header class="page-header">
+      <h1 class="mono-upper">Griffin Chure, PhD</h1>
+      <!-- <div class="header-line"></div> -->
+    </header>
+
+    <div class="content-wrapper">
+      
+      <div class="profile-section">
+        <img src="/images/headshot-stintson.png" alt="Griffin Chure" class="about-image" />
+        <div class="profile-right">
+          <div class="social-links-wrapper">
+            <SocialLinks size="small" />
+          </div>
+          <div class="experience-section">
+            <h2 class="experience-header mono-upper">Experience</h2>
+            <div class="experience-list">
+              <div class="experience-item">
+                <span class="experience-years">2024&ndash;</span>
+                <div class="experience-details">
+                  <span class="experience-role">Senior Computational Research Scientist</span>
+                  <span class="experience-place">Profluent Bio</span>
+                </div>
+              </div>
+              <div class="experience-item">
+                <span class="experience-years">2021&ndash;2024</span>
+                <div class="experience-details">
+                  <span class="experience-role">NSF Postdoctoral Research Fellow</span>
+                  <span class="experience-place">Stanford University, Dept. of Biology, Jonas Cremer Group</span>
+                </div>
+              </div>
+              <div class="experience-item">
+                <span class="experience-years">2013&ndash;2020</span>
+                <div class="experience-details">
+                  <span class="experience-role">PhD, Biochemistry & Molecular Biophysics</span>
+                  <span class="experience-place">Caltech, Div. of Biology & Biological Engineering,<br/>  Rob Phillips Group</span>
+                </div>
+              </div>
+              <div class="experience-item">
+                <span class="experience-years">2011&ndash;2015</span>
+                <div class="experience-details">
+                  <span class="experience-role">BS Biology & BS Chemistry</span>
+                  <span class="experience-place">University of Utah</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>The short version is that I'm an anti-disciplinary scientist. The
+      slightly longer version is that I'm a computational researcher at <a href="https://profluent.bio">Profluent Bio</a> who uses a 
+      blend of statistical inference, mathematical modeling, machine learning, and scientific 
+      software engineering to better understand the complex behavor of biological systems. 
+       </p>
+
+      <p>I am the progeny of two paleontologists and grew up in rural Utah, which 
+      was a unique experience. I spent my weekends helping my parents dig up dinosaur
+      bones and my spent my weekdays in the local public education system where I was taught that evolution was a
+      hoax and dinosaur bones were buried by either the devil or the government (or
+      both). Contending with these opposed views of reality strongly influenced how
+      I want to understand the world: through the cold, objective, logical lens of math.</p>
+
+      <p>I studied biology and chemistry at the University of Utah, then earned a
+      <a href="https://gchure.github.io/phd">PhD in Biochemistry and Molecular Biophysics</a>
+      with <a href="https://rpgroup.caltech.edu">Rob Phillips</a> at Caltech, where I
+      learned to approach biological problems from a physical and probabilistic
+      perspective. I continued as an NSF Postdoctoral Fellow with
+      <a href="https://cremerlab.github.io">Jonas Cremer</a> at Stanford, studying
+      the intersection of molecular biophysics, bacterial physiology, and evolution.
+      I am now  a senior computational research scientist at
+      <a href="https://profluent.bio">Profluent Bio</a> where I use bioinformatics
+      and protein language modeling to discover and design protein systems for
+      genetic engineering.</p>
+
+      <p>Outside of work hours, I build and maintain scientific resources like the
+      <a href="https://anthroponumbers.org">Human Impacts Database</a> and
+      <a href="https://cremerlab.github.io/hplc-py">hplc-py</a>. Beyond science, I love
+      taking photographs, making vector illustrations, and exploring the wildlands of California with my
+      partner and our two hounds. I watch my fair share of films about which I have
+      hard-headed opinions such as affinity for Alejandro Jodorowsky and Julia Ducournau,
+      a distaste for Star Wars and Marvel.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .content-wrapper {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .profile-section {
+    float: left;
+    margin: 0 2rem 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    shape-outside: margin-box;
+  }
+
+  .about-image {
+    width: 280px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+  }
+
+  .profile-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links-wrapper {
+    margin-top: 1rem;
+  }
+
+  .content-wrapper p {
+    margin-bottom: 1.25rem;
+    text-align: justify;
+  }
+
+  .content-wrapper p:first-of-type {
+    margin-top: 0;
+  }
+
+  .experience-section {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .experience-header {
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .experience-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .experience-years {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+  }
+
+  .experience-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .experience-role {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .experience-place {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .profile-section {
+      float: none;
+      margin: 0 0 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 1.25rem;
+      align-items: start;
+      width: 100%;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: none;
+    }
+
+    .profile-right {
+      align-items: flex-start;
+    }
+
+    .social-links-wrapper {
+      margin-top: 0;
+    }
+
+    .experience-section {
+      margin-top: 0.75rem;
+    }
+
+    .experience-header {
+      font-size: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-list {
+      gap: 0.4rem;
+    }
+
+    .experience-years {
+      font-size: 0.55rem;
+    }
+
+    .experience-role {
+      font-size: 0.65rem;
+    }
+
+    .experience-place {
+      font-size: 0.6rem;
+    }
+
+    .content-wrapper p {
+      text-align: left;
+    }
+  }
+</style>

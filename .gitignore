@@ -1,5 +1,17 @@
-_site
-Gemfile.lock
-.sass-cache
-.jekyll-metadata
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.*
+
+# Editor/OS
 .DS_Store
+.vscode/
+*.swp
+
+# Astro
+.astro/

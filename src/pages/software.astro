@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { emphasizeAuthor, formatDate, formatAuthors } from '../utils/formatters';
+import { getPublicationsBySlugs } from '../utils/publications';
+
+const software = await getCollection('software');
+const sortedSoftware = software.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+// Get all publications for reference
+const allPublications = await getCollection('publications');
+---
+
+<BaseLayout title="Software - Griffin Chure">
+  <div class="container">
+    <header class="page-header">
+      <h1 class="mono-upper">Software</h1>
+      <br/>
+      <p>I am well versed in building python packages for scientific computing and 
+        have experience doing full-stack development of web apps for scientific use cases. Below are examples of tools I've developed and actively maintain.</p>
+    </header>
+
+    <div class="software-list">
+      {sortedSoftware.map(async (item) => {
+        const { Content } = await item.render();
+        const featuredPubs = getPublicationsBySlugs(item.data.publications, allPublications);
+
+        return (
+          <article class="software-item">
+            <div class="software-top">
+              <div class="software-header">
+                <h2 class="mono-upper">{item.data.title}</h2>
+
+                <div class="software-meta">
+                  {item.data.stack && item.data.stack.length > 0 && (
+                    <p class="tech-stack">
+                      <span class="meta-label mono-upper">Stack:</span> {item.data.stack.join(' • ')}
+                    </p>
+                  )}
+
+                  {item.data.links && item.data.links.length > 0 && (
+                    <div class="software-links">
+                      <span class="meta-label mono-upper">Links:</span>
+                      <div class="links-list">
+                        {item.data.links.map(link => (
+                          <a href={link.url} target="_blank" rel="noopener" class="link-button mono-upper">
+                            <span class="link-name">{link.name}</span>
+                            <span class="link-arrow">↗</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {item.data.image && (
+                <div class="software-image">
+                  <img src={item.data.image} alt={item.data.title} />
+                </div>
+              )}
+            </div>
+
+            <div class="software-description">
+              <Content />
+            </div>
+
+            {featuredPubs.length > 0 && (
+              <div class="featured-publications">
+                <h3 class="mono-upper">Related Publications</h3>
+                <div class="pub-list">
+                  {featuredPubs.map(pub => (
+                    <div class="pub-item">
+                      <a href={`/publications/${pub.slug}`} class="pub-link">
+                        <time class="pub-date mono-upper">{formatDate(pub.data.date)}</time>
+                        <div class="pub-title mono-upper">{pub.data.title}</div>
+                        <div class="pub-authors" set:html={emphasizeAuthor(formatAuthors(pub.data.authors))} />
+                        <div class="pub-meta">
+                          <span class="pub-journal mono-upper">{pub.data.journal}</span>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .software-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .software-item {
+    border: none;
+    background: transparent;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .software-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .software-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .software-header h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .software-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+  }
+
+  .software-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .software-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+
+  .tech-stack {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .software-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .links-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .link-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.65rem;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .link-name {
+    font-weight: 400;
+  }
+
+  .link-arrow {
+    opacity: 1;
+    transition: all 0.15s ease;
+  }
+
+  .link-button:hover {
+    border-color: var(--text-tertiary);
+  }
+
+  .software-image img {
+    max-height: 250px;
+    width: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+
+  .software-description {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 0.9rem;
+  }
+
+  .software-description :global(p) {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .software-description :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .software-top {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .software-header {
+      order: 1;
+    }
+
+    .software-image {
+      order: 2;
+      text-align: center;
+    }
+
+    .software-image img {
+      display: inline-block;
+    }
+  }
+
+  /* Featured Publications Section */
+  .featured-publications {
+    margin-top: 1.5rem;
+  }
+
+  .featured-publications h3 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pub-item {
+    border-left: 2px solid var(--border-color);
+    padding-left: 1rem;
+    transition: border-color 0.15s ease;
+  }
+
+  .pub-item:hover {
+    border-left-color: var(--text-primary);
+  }
+
+  .pub-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .pub-date {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .pub-title {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  .pub-link:hover .pub-title {
+    text-decoration: underline;
+  }
+
+  .pub-authors {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .pub-authors :global(.emphasized-author) {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--text-primary);
+  }
+
+  .pub-meta {
+    font-size: 0.7rem;
+  }
+
+  .pub-journal {
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.1rem;
+    }
+
+    .software-list {
+      gap: 2.5rem;
+    }
+
+    .software-item {
+      padding-bottom: 2.5rem;
+    }
+
+  }
+</style>

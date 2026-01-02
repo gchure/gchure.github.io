@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { emphasizeAuthor, formatDate, formatAuthorsHtml } from '../../utils/formatters';
+
+const publications = await getCollection('publications');
+
+// Sort all publications by date (newest first)
+const sortedPublications = publications.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="Publications - Griffin Chure">
+  <div class="container">
+    <header class="page-header">
+      <h1 class="mono-upper">Publications</h1>
+      <br/>
+      <p>Below is a list of my scientific publications. Clicking on each card
+      will bring you to a page with an abstract, an embedded paper PDF, and a
+      bunch of useful links. If you cannot access any of the material due to
+      broken links or the disastrous capitalism of modern scientific publishing,
+      please contact me and I'll get you the goods.</p>
+    </header>
+
+    <div class="publications-list">
+      {sortedPublications.map((pub, index) => {
+        const authorNames = formatAuthorsHtml(pub.data.authors);
+        const pubNumber = sortedPublications.length - index;
+
+        return (
+          <div class="publication-item">
+            <a href={`/publications/${pub.slug}`} class="pub-link">
+              <span class="pub-counter mono-upper">{pubNumber}</span>
+              <time class="pub-date mono-upper">{formatDate(pub.data.date)}</time>
+              <h3 class="pub-title mono-upper">{pub.data.title}</h3>
+              <p class="pub-authors" set:html={emphasizeAuthor(authorNames)} />
+              <p class="pub-meta">
+                <span class="pub-journal mono-upper">{pub.data.journal}</span>
+                {pub.data.DOI && (
+                  <>
+                    <span class="pub-separator">·</span>
+                    <span class="pub-doi">{pub.data.DOI}</span>
+                  </>
+                )}
+              </p>
+              {pub.data.tags && pub.data.tags.length > 0 && (
+                <div class="pub-tags">
+                  {pub.data.tags.map(tag => (
+                    <span class="pub-tag mono-upper">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .publication-item {
+    border-left: 2px solid var(--border-color);
+    padding-left: 1rem;
+    transition: border-color 0.15s ease;
+  }
+
+  .publication-item:hover {
+    border-left-color: var(--text-primary);
+  }
+
+  .publication-item:hover .pub-counter {
+    color: var(--text-primary);
+  }
+
+  .pub-link {
+    display: grid;
+    grid-template-columns: 1.75rem 1fr;
+    gap: 0.25rem;
+    text-decoration: none;
+    align-items: start;
+  }
+
+  .pub-counter {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    transition: color 0.15s ease;
+  }
+
+  .pub-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pub-date {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 0.1rem;
+    grid-column: 2;
+  }
+
+  .pub-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.1rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    grid-column: 2;
+  }
+
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-family: 'Geist', sans-serif;
+    margin-bottom: 0.1rem;
+    line-height: 1.3;
+    grid-column: 2;
+  }
+
+  .pub-authors :global(.emphasized-author) {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--text-primary);
+  }
+
+  .pub-meta {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+    grid-column: 2;
+  }
+
+  .pub-separator {
+    color: var(--text-tertiary);
+  }
+
+  .pub-journal {
+    letter-spacing: 0.03em;
+  }
+
+  .pub-doi {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-family: 'Geist Mono', monospace;
+  }
+
+  .pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.15rem;
+    grid-column: 2;
+  }
+
+  .pub-tag {
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+
+  .pub-tag:not(:last-child)::after {
+    content: '·';
+    margin-left: 0.5rem;
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 768px) {
+    .pub-title {
+      font-size: 0.9rem;
+    }
+  }
+</style>
