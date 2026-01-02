@@ -10,7 +10,7 @@ authors:
   - name: Rob Phillips
     corr: true
 journal: 'Journal of Bacteriology'
-tags: ['physiology']
+tags: ['physiology', 'experimental']
 DOI: '10.1128/jb.00460-18'
 links:
   - name: PDF

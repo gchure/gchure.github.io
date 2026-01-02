@@ -20,13 +20,13 @@ tags: ['climate science', 'software']
 DOI: '10.1016/j.patter.2022.100552'
 links:
   - name: PDF
-    url: 'Chure2021.pdf'
+    url: 'Chure2022.pdf'
   - name: Publisher
     url: ''
   - name: Human Impacts Database
     url: 'https://anthroponumbers.org'
   - name: Graphical Snapshot
-    url: 'Chure2021_snapshot.pdf'
+    url: 'Chure2022_snapshot.pdf'
 abstract: >
     The Human Impacts Database (www.anthroponumbers.org) is a curated, searchable
     resource housing quantitative data relating to the diverse anthropogenic impacts
@@ -48,7 +48,7 @@ abstract: >
     interconnections. 
 ---
 
-# Notes_
+# Notes
 
 * Selected as the cover article for the September 2022 issue of Patterns.
 * Featured in ["A Quantitative Snapshot of Human Impacts on the Planet"](https://www.caltech.edu/about/news/the-human-impact-on-the-environment) by Lori Dajose at Caltech.

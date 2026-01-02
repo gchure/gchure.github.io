@@ -4,9 +4,9 @@ description: Understanding the fundamental principles governing cellular behavio
 order: 1
 image: /images/physiology.png
 publications:
-  - 2025-density-maintenance
-  - 2023-flux-parity
-  - 2021-fundamental-limits
+  - density-maintenance
+  - flux-parity
+  - fundamental-limits
 ---
 
 Effective coordination of cellular processes -- such as division, motility, and metabolism --  is critical to ensure the

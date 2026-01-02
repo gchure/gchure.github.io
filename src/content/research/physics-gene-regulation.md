@@ -5,8 +5,8 @@ order: 2
 image: /images/gene_regulation.png
 publications:
   - phd-thesis
-  - 2019-mwc-mutants
-  - 2018-mwc-induction
+  - mwc-mutants
+  - mwc-induction
 ---
 
 All living things share a fundamental ability: they sense changes in their

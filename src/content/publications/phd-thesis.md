@@ -4,13 +4,13 @@ date: '2020-06-01'
 authors:
   - name: Griffin Chure
 journal: 'Caltech Thesis'
-tags: ['PhD Thesis', 'statistical mechanics', 'modeling', 'perspective']
+tags: ['PhD Thesis', 'gene regulation', 'theory', 'perspective', 'experimental']
 DOI: ''
 links:
   - name: PDF
     url: 'Chure2020.pdf'
-  - name: Caltech Thesis Registry
-    url: ''
+  - name: ProQuest
+    url: 'https://www.proquest.com/openview/12c7aae2d46d29a5e8c797e1b50815a0/1?pq-origsite=gscholar&cbl=18750&diss=y'
   - name: Website Version
     url: 'https://gchure.github.io/phd'
   - name: GitHub Repository
@@ -74,5 +74,4 @@ abstract: >
   microscopy and tricks of statistical inference, we infer how the probability of
   a cell surviving an osmotic shock scales as a function of the cell’s number of
   mechanosensitive channels.
-
-  ---
+---

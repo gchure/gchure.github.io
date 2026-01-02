@@ -9,6 +9,9 @@ const publications = await getCollection('publications');
 const sortedPublications = publications.sort((a, b) =>
   new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
+
+// Extract all unique tags/categories
+const allTags = [...new Set(sortedPublications.flatMap(pub => pub.data.tags || []))].sort();
 ---
 
 <BaseLayout title="Publications - Griffin Chure">
@@ -23,13 +26,25 @@ const sortedPublications = publications.sort((a, b) =>
       please contact me and I'll get you the goods.</p>
     </header>
 
+    {allTags.length > 0 && (
+      <div class="tag-filter">
+        <span class="filter-label mono-upper">Filter by category:</span>
+        <div class="tag-buttons">
+          <button class="tag-button active mono-upper" data-tag="all">All</button>
+          {allTags.map(tag => (
+            <button class="tag-button mono-upper" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      </div>
+    )}
+
     <div class="publications-list">
       {sortedPublications.map((pub, index) => {
         const authorNames = formatAuthorsHtml(pub.data.authors);
         const pubNumber = sortedPublications.length - index;
 
         return (
-          <div class="publication-item">
+          <div class="publication-item" data-tags={JSON.stringify(pub.data.tags || [])}>
             <a href={`/publications/${pub.slug}`} class="pub-link">
               <span class="pub-counter mono-upper">{pubNumber}</span>
               <time class="pub-date mono-upper">{formatDate(pub.data.date)}</time>
@@ -60,6 +75,50 @@ const sortedPublications = publications.sort((a, b) =>
 </BaseLayout>
 
 <style>
+  /* Tag filter */
+  .tag-filter {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .filter-label {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-button {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.7rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-button:hover {
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
+  }
+
+  .tag-button.active {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
+  }
+
   .publications-list {
     display: flex;
     flex-direction: column;
@@ -78,6 +137,10 @@ const sortedPublications = publications.sort((a, b) =>
 
   .publication-item:hover .pub-counter {
     color: var(--text-primary);
+  }
+
+  .publication-item.hidden {
+    display: none;
   }
 
   .pub-link {
@@ -143,6 +206,7 @@ const sortedPublications = publications.sort((a, b) =>
     gap: 0.4rem;
     align-items: center;
     grid-column: 2;
+    margin-bottom: 0;
   }
 
   .pub-separator {
@@ -163,7 +227,7 @@ const sortedPublications = publications.sort((a, b) =>
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0.15rem;
+    margin-top: 0;
     grid-column: 2;
   }
 
@@ -180,8 +244,47 @@ const sortedPublications = publications.sort((a, b) =>
   }
 
   @media (max-width: 768px) {
+    .tag-buttons {
+      gap: 0.4rem;
+    }
+
+    .tag-button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.65rem;
+    }
+
     .pub-title {
       font-size: 0.9rem;
     }
   }
 </style>
+
+<script>
+  // Category filtering functionality
+  const tagButtons = document.querySelectorAll('.tag-button');
+  const pubItems = document.querySelectorAll('.publication-item');
+
+  tagButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedTag = button.getAttribute('data-tag');
+
+      // Update active state
+      tagButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter publications
+      pubItems.forEach(item => {
+        if (selectedTag === 'all') {
+          item.classList.remove('hidden');
+        } else {
+          const pubTags = JSON.parse(item.getAttribute('data-tags') || '[]');
+          if (pubTags.includes(selectedTag)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        }
+      });
+    });
+  });
+</script>
