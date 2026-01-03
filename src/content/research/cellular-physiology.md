@@ -2,7 +2,7 @@
 title: Cellular Physiology
 description: Understanding the fundamental principles governing cellular behavior through quantitative modeling and experimental validation.
 order: 1
-image: /images/physiology.png
+image: /images/physiology.jpg
 publications:
   - density-maintenance
   - flux-parity

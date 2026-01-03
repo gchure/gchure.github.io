@@ -2,7 +2,7 @@
 title: Physics of Gene Regulation
 description: Applying physical principles to understand how cells control gene expression through molecular mechanisms.
 order: 2
-image: /images/gene_regulation.png
+image: /images/gene_regulation.jpg
 publications:
   - phd-thesis
   - mwc-mutants

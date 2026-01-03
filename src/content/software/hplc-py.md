@@ -2,7 +2,7 @@
 title: "hplc-py"
 description: ""
 order: 1
-image: "/images/hplc-py.png"
+image: "/images/hplc-py.jpg"
 stack:
     - Python
     - SciPy

@@ -1,7 +1,7 @@
 ---
 title: Microbial Ecology
 order: 3
-image: /images/climate.png
+image: /images/climate.jpg
 description: ''
 publications:
   - strain-coexistence

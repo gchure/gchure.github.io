@@ -2,7 +2,7 @@
 title: "The Human Impacts Database"
 description: ""
 order: 2
-image: "/images/anthroponumbers.png"
+image: "/images/anthroponumbers.jpg"
 stack:
     - Django
     - Postgres
