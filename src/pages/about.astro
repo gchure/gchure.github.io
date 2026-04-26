@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import { Image } from 'astro:assets';
+import headshot from '../assets/headshot.jpg';
 ---
 
 <BaseLayout title="About - Griffin Chure">
@@ -13,7 +15,7 @@ import SocialLinks from '../components/SocialLinks.astro';
     <div class="content-wrapper">
       
       <div class="profile-section">
-        <img src="/images/headshot-stintson.jpg" alt="Griffin Chure" class="about-image" />
+        <Image src={headshot} alt="Griffin Chure" width={560} quality={90} class="about-image" />
         <div class="profile-right">
           <div class="social-links-wrapper">
             <SocialLinks size="small" />
@@ -22,17 +24,24 @@ import SocialLinks from '../components/SocialLinks.astro';
             <h2 class="experience-header mono-upper">Experience</h2>
             <div class="experience-list">
               <div class="experience-item">
-                <span class="experience-years">2024&ndash;</span>
+                <span class="experience-years">2025&ndash;</span>
                 <div class="experience-details">
                   <span class="experience-role">Senior Computational Research Scientist</span>
                   <span class="experience-place">Profluent Bio</span>
                 </div>
               </div>
               <div class="experience-item">
-                <span class="experience-years">2021&ndash;2024</span>
+                <span class="experience-years">2021&ndash;2025</span>
                 <div class="experience-details">
                   <span class="experience-role">NSF Postdoctoral Research Fellow</span>
                   <span class="experience-place">Stanford University, Dept. of Biology, Jonas Cremer Group</span>
+                </div>
+              </div>
+              <div class="experience-item">
+                <span class="experience-years">2020</span>
+                <div class="experience-details">
+                  <span class="experience-role">Postdoctoral Scholar</span>
+                  <span class="experience-place">Caltech, Dept. of Applied Physics, Rob Phillips Group</span>
                 </div>
               </div>
               <div class="experience-item">
