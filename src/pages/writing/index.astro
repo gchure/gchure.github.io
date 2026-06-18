@@ -45,7 +45,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags))].sort()
         const postNumber = sortedPosts.length - index;
         return (
           <article class="post-item" data-tags={JSON.stringify(post.data.tags)}>
-            <a href={`/writing/${post.slug}`} class="post-link">
+            <a href={`/writing/${post.id}`} class="post-link">
               <span class="post-counter mono-upper">{postNumber}</span>
               <time class="post-date mono-upper">{formatDate(post.data.date)}</time>
               <h2 class="post-title">{post.data.title}</h2>

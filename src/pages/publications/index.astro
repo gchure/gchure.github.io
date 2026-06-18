@@ -45,7 +45,7 @@ const allTags = [...new Set(sortedPublications.flatMap(pub => pub.data.tags || [
 
         return (
           <div class="publication-item" data-tags={JSON.stringify(pub.data.tags || [])}>
-            <a href={`/publications/${pub.slug}`} class="pub-link">
+            <a href={`/publications/${pub.id}`} class="pub-link">
               <span class="pub-counter mono-upper">{pubNumber}</span>
               <time class="pub-date mono-upper">{formatDate(pub.data.date)}</time>
               <h3 class="pub-title mono-upper">{pub.data.title}</h3>

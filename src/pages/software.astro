@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { emphasizeAuthor, formatDate, formatAuthors } from '../utils/formatters';
 import { getPublicationsBySlugs } from '../utils/publications';
 
@@ -22,7 +22,7 @@ const allPublications = await getCollection('publications');
 
     <div class="software-list">
       {sortedSoftware.map(async (item) => {
-        const { Content } = await item.render();
+        const { Content } = await render(item);
         const featuredPubs = getPublicationsBySlugs(item.data.publications, allPublications);
 
         return (
@@ -71,7 +71,7 @@ const allPublications = await getCollection('publications');
                 <div class="pub-list">
                   {featuredPubs.map(pub => (
                     <div class="pub-item">
-                      <a href={`/publications/${pub.slug}`} class="pub-link">
+                      <a href={`/publications/${pub.id}`} class="pub-link">
                         <time class="pub-date mono-upper">{formatDate(pub.data.date)}</time>
                         <div class="pub-title mono-upper">{pub.data.title}</div>
                         <div class="pub-authors" set:html={emphasizeAuthor(formatAuthors(pub.data.authors))} />
