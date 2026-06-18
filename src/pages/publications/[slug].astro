@@ -1,18 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { emphasizeAuthor, formatAuthors } from '../../utils/formatters';
 
 export async function getStaticPaths() {
   const publications = await getCollection('publications');
   return publications.map((pub) => ({
-    params: { slug: pub.slug },
+    params: { slug: pub.id },
     props: { pub },
   }));
 }
 
 const { pub } = Astro.props;
-const { Content } = await pub.render();
+const { Content } = await render(pub);
 
 // Check if any authors have equal or corr markers
 const hasEqual = pub.data.authors.some(a => a.equal);

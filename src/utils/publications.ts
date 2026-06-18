@@ -15,6 +15,6 @@ export function getPublicationsBySlugs(
 ): Publication[] {
   if (!slugs) return [];
   return slugs
-    .map(slug => allPublications.find(pub => pub.slug === slug))
+    .map(slug => allPublications.find(pub => pub.id === slug))
     .filter((pub): pub is Publication => pub !== undefined);
 }
