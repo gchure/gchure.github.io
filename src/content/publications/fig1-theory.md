@@ -7,7 +7,7 @@ authors:
   - name: Nathan M. Belliveau
   - name: Griffin Chure
   - name: Hernan G. Garcia
-  - name: Manuel Razo-Majia
+  - name: Manuel Razo-Mejia
   - name: Clarissa Scholes 
 journal: 'Annual Reviews of Biophysics'
 tags: ['gene regulation', 'theory', 'perspective']

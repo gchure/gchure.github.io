@@ -11,7 +11,7 @@ authors:
     corr: true
 tags: ['ecology', 'perspective']
 journal: 'Environmental Microbiology'
-DOI: 'https://doi.org/10.1038/example'
+DOI: 'https://doi.org/10.1111/1462-2920.70094'
 links:
   - name: PDF
     url: 'Goyal2025.pdf'
